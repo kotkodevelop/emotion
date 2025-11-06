@@ -384,9 +384,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* Cards grid */
 .cards-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .cards-grid-inner {
   display: flex;
