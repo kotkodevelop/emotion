@@ -17,118 +17,184 @@ document.querySelectorAll('.fav').forEach(btn => {
     });
 });
 
-    // panels
+
+// panels + search mobile
 (function(){
-    const catalogBtn = document.getElementById('catalogBtn');
-    const menuBtn = document.getElementById('menuBtn');
-    const catalogPanel = document.getElementById('catalogPanel');
-    const menuPanel = document.getElementById('menuPanel');
-    const header = document.querySelector('.site-header');
-    const blur = document.querySelector('.page-blur');
+  const catalogBtn = document.getElementById('catalogBtn');
+  const menuBtn = document.getElementById('menuBtn');
+  const catalogPanel = document.getElementById('catalogPanel');
+  const menuPanel = document.getElementById('menuPanel');
+  const header = document.querySelector('.site-header');
+  const blur = document.querySelector('.page-blur');
+  const searchButton = document.querySelector('.search-finder');
+  const searchPanel = document.querySelector('.search-nav-panel');
 
-    if (!catalogBtn || !menuBtn || !catalogPanel || !menuPanel) return;
+  if (!catalogBtn || !menuBtn || !catalogPanel || !menuPanel) return;
 
-    let lastFocused = null;
+  let lastFocused = null;
 
-    // картинки для смены
-    const icons = {
-      catalog: {
-        default: 'assets/img/catalog-icon.svg',
-        active: 'assets/img/catalog-icon-active.svg'
-      },
-      menu: {
-        default: 'assets/img/burger.svg',
-        active: 'assets/img/close.svg'
+  // SVG иконки
+  const icons = {
+    catalog: {
+      default: `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+          <path fill="#222" d="M4.032 9.368c-1.196 0-1.785-.59-1.785-1.818V4.08c0-1.228.59-1.81 1.785-1.81H7.56c1.195 0 1.784.582 1.784 1.81v3.47c0 1.228-.59 1.818-1.784 1.818H4.032Zm8.4 0c-1.204 0-1.784-.59-1.784-1.818V4.08c0-1.228.58-1.81 1.784-1.81h3.528c1.195 0 1.785.582 1.785 1.81v3.47c0 1.228-.59 1.818-1.785 1.818h-3.528ZM4.04 7.998h3.503c.29 0 .44-.141.44-.448V4.072c0-.29-.15-.44-.44-.44H4.04c-.29 0-.432.15-.432.44V7.55c0 .307.142.448.432.448Zm8.4 0h3.512c.29 0 .423-.141.423-.448V4.072c0-.29-.133-.44-.423-.44H12.44c-.29 0-.431.15-.431.44V7.55c0 .307.14.448.431.448ZM4.032 17.76c-1.196 0-1.785-.581-1.785-1.81v-3.47c0-1.236.59-1.817 1.785-1.817H7.56c1.195 0 1.784.58 1.784 1.817v3.47c0 1.229-.59 1.81-1.784 1.81H4.032Zm8.4 0c-1.204 0-1.784-.581-1.784-1.81v-3.47c0-1.236.58-1.817 1.784-1.817h3.528c1.195 0 1.785.58 1.785 1.817v3.47c0 1.229-.59 1.81-1.785 1.81h-3.528ZM4.04 16.398h3.503c.29 0 .44-.149.44-.44V12.48c0-.307-.15-.448-.44-.448H4.04c-.29 0-.432.141-.432.448v3.479c0 .29.142.44.432.44Zm8.4 0h3.512c.29 0 .423-.149.423-.44V12.48c0-.307-.133-.448-.423-.448H12.44c-.29 0-.431.141-.431.448v3.479c0 .29.14.44.431.44Z"/>
+        </svg>
+      `,
+      activeDesktop: `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+          <path fill="#fff" d="M16.416 15.128a.935.935 0 0 1-.008 1.304.937.937 0 0 1-1.311.008l-5.105-5.105-5.105 5.105c-.34.34-.947.349-1.312-.008a.935.935 0 0 1 0-1.304l5.105-5.113L3.575 4.91c-.348-.34-.348-.946 0-1.311.357-.357.971-.349 1.312 0l5.105 5.105 5.105-5.105a.937.937 0 0 1 1.311.008.927.927 0 0 1 .008 1.303l-5.104 5.105 5.104 5.113Z"/>
+        </svg>
+      `,
+      activeMobile: `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+          <path fill="#FF395C" d="M4.032 9.368c-1.196 0-1.785-.581-1.785-1.81V4.08c0-1.228.59-1.81 1.785-1.81H7.56c1.195 0 1.784.582 1.784 1.81v3.478c0 1.229-.59 1.81-1.784 1.81H4.032Zm8.4 0c-1.204 0-1.784-.581-1.784-1.81V4.08c0-1.228.58-1.81 1.784-1.81h3.528c1.195 0 1.785.582 1.785 1.81v3.478c0 1.229-.59 1.81-1.785 1.81h-3.528Zm-8.4 8.4c-1.196 0-1.785-.581-1.785-1.818v-3.47c0-1.228.59-1.81 1.785-1.81H7.56c1.195 0 1.784.582 1.784 1.81v3.47c0 1.237-.59 1.818-1.784 1.818H4.032Zm8.4 0c-1.204 0-1.784-.581-1.784-1.818v-3.47c0-1.228.58-1.81 1.784-1.81h3.528c1.195 0 1.785.582 1.785 1.81v3.47c0 1.237-.59 1.818-1.785 1.818h-3.528Z"/>
+        </svg>
+      `
+    },
+    menu: {
+      default: `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+          <path fill="#222" d="M2.239 7.035a.756.756 0 0 1-.747-.755c0-.415.332-.747.747-.747h15.514a.75.75 0 1 1 0 1.502H2.239Zm0 3.736a.75.75 0 0 1-.747-.748c0-.423.332-.763.747-.763h15.514a.76.76 0 0 1 .755.763c0 .407-.34.748-.755.748H2.239Zm0 3.743a.758.758 0 0 1-.747-.763.75.75 0 0 1 .747-.748h15.514a.75.75 0 0 1 .755.748.76.76 0 0 1-.755.763H2.239Z"/>
+        </svg>
+      `,
+      activeDesktop: `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+          <path fill="#fff" d="M16.416 15.128a.935.935 0 0 1-.008 1.304.937.937 0 0 1-1.311.008l-5.105-5.105-5.105 5.105c-.34.34-.947.349-1.312-.008a.935.935 0 0 1 0-1.304l5.105-5.113L3.575 4.91c-.348-.34-.348-.946 0-1.311.357-.357.971-.349 1.312 0l5.105 5.105 5.105-5.105a.937.937 0 0 1 1.311.008.927.927 0 0 1 .008 1.303l-5.104 5.105 5.104 5.113Z"/>
+        </svg>
+      `,
+      activeMobile: `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+          <path fill="#222" d="M16.416 15.128a.935.935 0 0 1-.008 1.304.937.937 0 0 1-1.311.008l-5.105-5.105-5.105 5.105c-.34.34-.947.349-1.312-.008a.935.935 0 0 1 0-1.304l5.105-5.113L3.575 4.91c-.348-.34-.348-.946 0-1.311.357-.357.971-.349 1.312 0l5.105 5.105 5.105-5.105a.937.937 0 0 1 1.311.008.927.927 0 0 1 .008 1.303l-5.104 5.105 5.104 5.113Z"/>
+        </svg>
+      `
+    }
+  };
+
+  const isMobile = () => window.innerWidth < 768;
+
+  function setOpen(btn, panel, open) {
+    if (!btn || !panel) return;
+    btn.setAttribute('aria-expanded', String(open));
+    panel.classList.toggle('open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+    btn.classList.toggle('active', open);
+
+    const iconContainer = btn.querySelector('.icon');
+    if (iconContainer) {
+      if (btn.id === 'catalogBtn') {
+        iconContainer.innerHTML = open
+          ? (isMobile() ? icons.catalog.activeMobile : icons.catalog.activeDesktop)
+          : icons.catalog.default;
       }
-    };
-
-    function setOpen(btn, panel, open) {
-      if (!btn || !panel) return;
-
-      // Атрибуты ARIA
-      btn.setAttribute('aria-expanded', String(open));
-      panel.classList.toggle('open', open);
-      panel.setAttribute('aria-hidden', String(!open));
-
-      // 🔥 Активное состояние кнопок
-      btn.classList.toggle('active', open);
-
-      // Смена иконки
-      const img = btn.querySelector('img');
-      if (img) {
-        if (btn.id === 'menuBtn') {
-          img.src = open ? icons.menu.active : icons.menu.default;
-        } else if (btn.id === 'catalogBtn') {
-          img.src = open ? icons.catalog.active : icons.catalog.default;
-        }
-      }
-
-      // 🌫️ blur и классы на header
-      if (header && blur) {
-        if (panel.id === 'catalogPanel') {
-          header.classList.toggle('catalog-open', open);
-          blur.classList.toggle('active', open);
-        }
-        if (panel.id === 'menuPanel') {
-          header.classList.toggle('menu-open', open);
-          blur.classList.toggle('active', open);
-        }
-      }
-
-      // Фокус-менеджмент
-      if (open) {
-        lastFocused = document.activeElement;
-        const focusable = panel.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
-        if (focusable) focusable.focus();
-      } else {
-        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      if (btn.id === 'menuBtn') {
+        iconContainer.innerHTML = open
+          ? (isMobile() ? icons.menu.activeMobile : icons.menu.activeDesktop)
+          : icons.menu.default;
       }
     }
 
-    function closeAll() {
+    if (header && blur) {
+      if (panel.id === 'catalogPanel') {
+        header.classList.toggle('catalog-open', open);
+        blur.classList.toggle('active', open);
+      }
+      if (panel.id === 'menuPanel') {
+        header.classList.toggle('menu-open', open);
+        blur.classList.toggle('active', open);
+      }
+    }
+
+    if (open) {
+      lastFocused = document.activeElement;
+      const focusable = panel.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+      if (focusable) focusable.focus();
+    } else {
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+  }
+
+  function closeAll() {
+    setOpen(catalogBtn, catalogPanel, false);
+    setOpen(menuBtn, menuPanel, false);
+    closeSearch();
+  }
+
+  function initIcons() {
+    const catalogIcon = catalogBtn.querySelector('.icon');
+    const menuIcon = menuBtn.querySelector('.icon');
+    if (catalogIcon) catalogIcon.innerHTML = icons.catalog.default;
+    if (menuIcon) menuIcon.innerHTML = icons.menu.default;
+  }
+
+  // handlers
+  catalogBtn.addEventListener('click', () => {
+    const willOpen = catalogBtn.getAttribute('aria-expanded') !== 'true';
+    if (willOpen) setOpen(menuBtn, menuPanel, false);
+    closeSearch();
+    setOpen(catalogBtn, catalogPanel, willOpen);
+  });
+
+  menuBtn.addEventListener('click', () => {
+    const willOpen = menuBtn.getAttribute('aria-expanded') !== 'true';
+    if (willOpen) setOpen(catalogBtn, catalogPanel, false);
+    closeSearch();
+    setOpen(menuBtn, menuPanel, willOpen);
+  });
+
+  // клик вне панелей
+  document.addEventListener('click', e => {
+    if (e.target.closest('.search-nav')) return;
+
+    if (catalogPanel.classList.contains('open') && !catalogPanel.contains(e.target) && e.target !== catalogBtn)
       setOpen(catalogBtn, catalogPanel, false);
+    if (menuPanel.classList.contains('open') && !menuPanel.contains(e.target) && e.target !== menuBtn)
       setOpen(menuBtn, menuPanel, false);
+    if (searchPanel && searchPanel.classList.contains('open') && !searchPanel.contains(e.target) && e.target !== searchButton) {
+      closeSearch();
     }
+  });
 
-    catalogBtn.addEventListener('click', () => {
-      const willOpen = catalogBtn.getAttribute('aria-expanded') !== 'true';
-      if (willOpen) setOpen(menuBtn, menuPanel, false);
-      setOpen(catalogBtn, catalogPanel, willOpen);
-    });
+  [catalogPanel, menuPanel, searchPanel].forEach(p => p && p.addEventListener('click', e => e.stopPropagation()));
 
-    menuBtn.addEventListener('click', () => {
-      const willOpen = menuBtn.getAttribute('aria-expanded') !== 'true';
-      if (willOpen) setOpen(catalogBtn, catalogPanel, false);
-      setOpen(menuBtn, menuPanel, willOpen);
-    });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeAll();
+  });
 
-    // Клик вне панели (не закрываем при фокусе или клике по поиску)
-    document.addEventListener('click', e => {
-    const isSearch = e.target.closest('.search-nav'); // 🔍 проверяем, кликнули ли по поиску
+  window.addEventListener('resize', () => {
+    if (catalogBtn.classList.contains('active')) setOpen(catalogBtn, catalogPanel, true);
+    if (menuBtn.classList.contains('active')) setOpen(menuBtn, menuPanel, true);
+    if (window.innerWidth >= 768) closeAll();
+  });
 
-    if (isSearch) return; // если это поле поиска — ничего не закрываем
+  // 🔍 SEARCH panel
+  function closeSearch() {
+    if (!searchPanel || !searchButton) return;
+    searchPanel.classList.remove('open');
+    searchButton.classList.remove('open');
+    blur.classList.remove('active');
+  }
 
-    if (catalogPanel.classList.contains('open') && !catalogPanel.contains(e.target) && e.target !== catalogBtn) {
-        setOpen(catalogBtn, catalogPanel, false);
-    }
-    if (menuPanel.classList.contains('open') && !menuPanel.contains(e.target) && e.target !== menuBtn) {
-        setOpen(menuBtn, menuPanel, false);
-    }
-    });
-
-
-    // Не закрывать при клике внутри
-    [catalogPanel, menuPanel].forEach(p => {
-      p.addEventListener('click', e => e.stopPropagation());
-    });
-
-    // ESC
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
+  if (searchButton && searchPanel) {
+    searchButton.addEventListener('click', function () {
+      if (window.innerWidth < 768) {
+        const open = !searchPanel.classList.contains('open');
         closeAll();
+        searchPanel.classList.toggle('open', open);
+        searchButton.classList.toggle('open', open);
+        blur.classList.toggle('active', open);
       }
     });
+  }
+
+  initIcons();
 })();
+
+
+
+
+
+
 
 // search input clear button
 const searchInput = document.getElementById("searchInput");

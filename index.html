@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no">
   <title>Мастерская эмоций — Главная</title>
   <!-- Swiper -->
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
@@ -13,25 +14,24 @@
   <div class="page-blur"></div>
   <header class="site-header">
     <div class="container header-inner">
-      <img class="logo" src="assets/img/Logo.svg" alt="Logo">
       <div class="header-controls">
-        
+        <img class="logo" src="assets/img/Logo.svg" alt="Logo">
         <div class="header-controls-wrap">
           <button id="catalogBtn" 
           class="btn ghost" 
           aria-expanded="false" 
           aria-controls="catalogPanel">
-          <img src="assets/img/catalog-icon.svg" alt="">
-          <span>Каталог</span>
+          <span class="icon"></span>
+          <p>Каталог</p>
         </button>
-         <div class="search-nav">
+        <div class="search-nav search-nav-main" >
           <input type="search" id="searchInput" placeholder="Найти эмоции..." />
           <button class="search-clear" id="clearBtn" aria-label="Очистить">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
               <path fill="#6A6A6A" fill-opacity=".6" d="M12.53 11.385a.66.66 0 0 1-.007.92.661.661 0 0 1-.925.005L7.994 8.707 4.391 12.31a.673.673 0 0 1-.926-.005.66.66 0 0 1 0-.92l3.603-3.61-3.603-3.603c-.246-.24-.246-.668 0-.926a.667.667 0 0 1 .926 0L7.994 6.85l3.604-3.604a.661.661 0 0 1 .925.006.654.654 0 0 1 .006.92L8.926 7.775l3.603 3.61Z"/>
             </svg>
           </button>
-          <button class="search-box" id="searchBtn" aria-label="Поиск">
+          <button class="search-box search-finder" id="searchBtn" aria-label="Поиск">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
               <path fill="#6A6A6A" fill-opacity=".6" d="M1.807 8.496A6.763 6.763 0 0 1 8.564 1.74a6.763 6.763 0 0 1 6.757 6.757 6.605 6.605 0 0 1-1.262 3.885l3.793 3.802c.225.232.34.54.34.871 0 .69-.506 1.22-1.211 1.22a1.21 1.21 0 0 1-.88-.348l-3.818-3.819a6.57 6.57 0 0 1-3.719 1.146 6.763 6.763 0 0 1-6.757-6.757Zm1.727 0c0 2.78 2.25 5.03 5.03 5.03 2.78 0 5.03-2.25 5.03-5.03 0-2.78-2.25-5.03-5.03-5.03-2.78 0-5.03 2.25-5.03 5.03Z"/>
             </svg>
@@ -42,7 +42,9 @@
         <div class="header-controls-wrap-2">
           <a href="#">
             <div class="fav-btn">
-              <img src="assets/img/fav-icon.svg" alt="fav-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path fill="#222" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+              </svg>
             </div>
           </a>
           <button id="menuBtn" class="btn" 
@@ -50,8 +52,8 @@
           aria-controls="menuPanel" 
           aria-haspopup="true" 
           aria-label="Открыть меню">
-          <span>Меню</span>
-          <img src="assets/img/burger.svg" alt="">
+            <span class="icon"></span>
+            <p>Меню</p>
         </button>
         </div>
         <!-- Menu panel -->
@@ -69,54 +71,66 @@
 
       </div>
     </div>
+  </header>
 
-    <!-- Catalog panel -->
-    <div id="catalogPanel" class="panel catalog-panel" aria-hidden="true" role="region" aria-label="Каталог">
-      <div class="container">
-        <div class="catalog-grid">
-          <a class="cat-item" href="#">
-            <img src="assets/img/cat-1.svg" alt="">
-            Предложение руки и сердца
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
-            Романтические свидания
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
-            Организация свадьбы
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
-            Выписка из роддома
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
-            Мальчишник
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
-            Девичник
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
-            Фотосессия
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
-            Гендерные праздники
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
-            Флешмоб
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
-            Выписка из роддома
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
-            Мальчишник
-          </a>
-          <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
-            Девичник
-          </a>
-        </div>
+  <div class="search-nav search-nav-panel" >
+    <input type="search" id="searchInput" placeholder="Найти эмоции..." />
+    <button class="search-clear" id="clearBtn" aria-label="Очистить">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+        <path fill="#6A6A6A" fill-opacity=".6" d="M12.53 11.385a.66.66 0 0 1-.007.92.661.661 0 0 1-.925.005L7.994 8.707 4.391 12.31a.673.673 0 0 1-.926-.005.66.66 0 0 1 0-.92l3.603-3.61-3.603-3.603c-.246-.24-.246-.668 0-.926a.667.667 0 0 1 .926 0L7.994 6.85l3.604-3.604a.661.661 0 0 1 .925.006.654.654 0 0 1 .006.92L8.926 7.775l3.603 3.61Z"/>
+      </svg>
+    </button>
+    <button class="search-box" id="searchBtn" aria-label="Поиск">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+        <path fill="#6A6A6A" fill-opacity=".6" d="M1.807 8.496A6.763 6.763 0 0 1 8.564 1.74a6.763 6.763 0 0 1 6.757 6.757 6.605 6.605 0 0 1-1.262 3.885l3.793 3.802c.225.232.34.54.34.871 0 .69-.506 1.22-1.211 1.22a1.21 1.21 0 0 1-.88-.348l-3.818-3.819a6.57 6.57 0 0 1-3.719 1.146 6.763 6.763 0 0 1-6.757-6.757Zm1.727 0c0 2.78 2.25 5.03 5.03 5.03 2.78 0 5.03-2.25 5.03-5.03 0-2.78-2.25-5.03-5.03-5.03-2.78 0-5.03 2.25-5.03 5.03Z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Catalog panel -->
+  <div id="catalogPanel" class="panel catalog-panel" aria-hidden="true" role="region" aria-label="Каталог">
+    <div class="container">
+      <div class="catalog-grid">
+        <a class="cat-item" href="#">
+          <img src="assets/img/cat-1.svg" alt="">
+          Предложение руки и сердца
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Романтические свидания
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Организация свадьбы
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Выписка из роддома
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Мальчишник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Девичник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Фотосессия
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Гендерные праздники
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Флешмоб
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Выписка из роддома
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Мальчишник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Девичник
+        </a>
       </div>
     </div>
-
-    
-  </header>
+  </div>
 
   <main>
     <!-- Hero -->
