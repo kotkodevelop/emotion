@@ -132,40 +132,44 @@
     </div>
   </div>
 
-  <style>
-    body {
-      padding-top: 0;
-    }
-  </style>
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-content-wrap">
-            <h1 class="hero-title">Организуем важные события вашей жизни</h1>
-            <p class="hero-sub">Прекрасная возможность выразить свои чувства ко второй половинке, сделать признание</p>
-            <a href="#" class="btn hero-btn">Каталог</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- Category block (repeat for multiple categories) -->
-    <section class="category-section container">
+
+  <main>
+    <!-- Breadcrumbs -->
+    <nav class="page-breadcrumbs container center" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+        <li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="index.html" itemprop="item">
+            <span itemprop="name">Главная</span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
+
+        <li class="breadcrumbs-separator" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+            <path fill="#6A6A6A" fill-opacity=".6" d="M11.75 7.77c0 .199-.07.369-.229.521l-4.57 4.47a.645.645 0 0 1-.474.194.674.674 0 0 1-.686-.68c0-.187.082-.357.205-.486l4.125-4.02L5.996 3.75a.707.707 0 0 1-.205-.492c0-.381.305-.674.686-.674.187 0 .345.064.474.193l4.57 4.471a.712.712 0 0 1 .229.522Z"/>
+          </svg>
+        </li>
+
+        <li class="breadcrumbs-item current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Романтическое свидание</span>
+          <meta itemprop="position" content="3" />
+        </li>
+
+      </ol>
+    </nav>
+
+    <section class="category-section container cat-page-section">
       <div class="category-head">
         <div class="category-title-group">
           <img class="cat-icon" src="assets/img/cat-1.svg" alt="">
           <div>
-            <a href="#" class="category-name">Романтичесческое свидание</a>
-            <p class="category-desc">Прекрасная возможность выразить свои чувства ко второй половинке, сделать признание</p>
+            <h1 class="category-name">Романтичесческое свидание</h1>
+            <p class="category-desc">Закажите мероприятие и получите подробный сценарий своего уникального события уже сегодня! Подарите любимым восторг и незабываемые эмоции!</p>
           </div>
         </div>
-
-        <div class="category-actions">
-          <a class="btn all-cat-btn" href="#">Посмотреть все <img src="assets/img/chevron-right.svg" alt="chevron-right"></a>
-        </div>
       </div>
-
-
       <div class="cards-grid">
         <div class="cards-grid-inner">
 
@@ -296,28 +300,6 @@
               </div>
             </div>
           </article>
-        </div>
-        
-      </div>
-    </section>
-
-    <section class="category-section container">
-      <div class="category-head">
-        <div class="category-title-group">
-          <img class="cat-icon" src="assets/img/cat-2.svg" alt="">
-          <div>
-            <a href="#" class="category-name">Предложение руки и сердца</a>
-            <p class="category-desc">Прекрасная возможность выразить свои чувства ко второй половинке, сделать признание</p>
-          </div>
-        </div>
-
-        <div class="category-actions">
-          <a class="btn all-cat-btn" href="#">Посмотреть все <img src="assets/img/chevron-right.svg" alt="chevron-right"></a>
-        </div>
-      </div>
-
-      <div class="cards-grid">
-        <div class="cards-grid-inner">
 
           <article class="card">
               <div class="card-media">
@@ -446,28 +428,6 @@
               </div>
             </div>
           </article>
-        </div>
-        
-      </div>
-    </section>
-
-    <section class="category-section container">
-      <div class="category-head">
-        <div class="category-title-group">
-          <img class="cat-icon" src="assets/img/cat-2.svg" alt="">
-          <div>
-            <a href="#" class="category-name">Предложение руки и сердца</a>
-            <p class="category-desc">Прекрасная возможность выразить свои чувства ко второй половинке, сделать признание</p>
-          </div>
-        </div>
-
-        <div class="category-actions">
-          <a class="btn all-cat-btn" href="#">Посмотреть все <img src="assets/img/chevron-right.svg" alt="chevron-right"></a>
-        </div>
-      </div>
-
-      <div class="cards-grid">
-        <div class="cards-grid-inner">
 
           <article class="card">
               <div class="card-media">
@@ -596,160 +556,138 @@
               </div>
             </div>
           </article>
+
+          <article class="card">
+            <div class="card-media">
+                <div class="swiper card-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev">
+                    <img src="assets/img/chevron-left.svg" alt="chevron">
+                  </div>
+                  <div class="swiper-button-next">
+                    <img src="assets/img/chevron-right.svg" alt="chevron">
+                  </div>
+                </div>
+                <button class="fav">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                    <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+                  </svg>
+                </button>
+            </div>
+            <div class="card-body">
+              <a class="card-title" href="#">Романтический вечер в гостинице</a>
+              <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
+              <div class="card-meta">
+                <span class="price">от 20 000₽</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+                <div class="swiper card-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev">
+                    <img src="assets/img/chevron-left.svg" alt="chevron">
+                  </div>
+                  <div class="swiper-button-next">
+                    <img src="assets/img/chevron-right.svg" alt="chevron">
+                  </div>
+                </div>
+                <button class="fav">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                    <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+                  </svg>
+                </button>
+            </div>
+            <div class="card-body">
+              <a class="card-title" href="#">Романтический вечер в гостинице</a>
+              <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
+              <div class="card-meta">
+                <span class="price">от 20 000₽</span>
+              </div>
+            </div>
+          </article>
+
+     
+
         </div>
-        
       </div>
+      <nav class="pagination" aria-label="Постраничная навигация">
+        <ul class="pagination-list">
+          <li class="pagination-item">
+            <a href="#" class="pagination-link prev" aria-label="Предыдущая страница">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path fill="#222" d="M4.68 10.007c.008-.282.107-.523.331-.739l6.475-6.333a.901.901 0 0 1 .672-.274c.54 0 .963.415.963.954a1 1 0 0 1-.29.697l-5.836 5.695 5.836 5.694c.182.183.29.424.29.69a.948.948 0 0 1-.963.962.901.901 0 0 1-.672-.274L5.01 10.746c-.224-.216-.332-.457-.332-.74Z"/>
+              </svg>
+            </a>
+          </li>
+          <li class="pagination-item"><a href="#" class="pagination-link active" aria-current="page">1</a></li>
+          <li class="pagination-item"><a href="#" class="pagination-link">2</a></li>
+          <li class="pagination-item"><a href="#" class="pagination-link">3</a></li>
+          <li class="pagination-item"><span class="pagination-ellipsis">…</span></li>
+          <li class="pagination-item"><a href="#" class="pagination-link">12</a></li>
+          <li class="pagination-item">
+            <a href="#" class="pagination-link next" aria-label="Следующая страница">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path fill="#222" d="M15.313 10.007a.98.98 0 0 1-.324.739l-6.475 6.333a.914.914 0 0 1-.672.274.955.955 0 0 1-.971-.963c0-.265.116-.506.29-.689l5.844-5.694L7.16 4.313a1.001 1.001 0 0 1-.29-.698c0-.54.431-.954.97-.954.266 0 .49.09.673.274l6.475 6.333c.216.216.323.457.323.739Z"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+
     </section>
 
-    <section class="category-section container">
-      <div class="category-head">
-        <div class="category-title-group">
-          <img class="cat-icon" src="assets/img/cat-2.svg" alt="">
-          <div>
-            <a href="#" class="category-name">Предложение руки и сердца</a>
-            <p class="category-desc">Прекрасная возможность выразить свои чувства ко второй половинке, сделать признание</p>
-          </div>
-        </div>
+    <section class="category-page-info container">
+      <div class="category-page-info-text" id="textBlock">
+        <div class="category-page-info-content">
+          <p>Если раньше было достаточно встать на одно колено, чтобы покорить юную особу, то теперь этим никого не удивишь. Вы хотите необычно предложить выйти замуж и вызвать бурю эмоций, которые станут началом ваших долгих отношений? В таком случае вам стоит подумать, как организовать предложение руки и сердца девушке.</p>
 
-        <div class="category-actions">
-          <a class="btn all-cat-btn" href="#">Посмотреть все <img src="assets/img/chevron-right.svg" alt="chevron-right"></a>
+          <p>И помочь в этом всегда готовы специалисты агентства <a href="#">“Мастерская Эмоций”</a>. Мы знаем, как найти кратчайший путь к сердцу вашей избранницы и провести вечер в романтической атмосфере. Выйти замуж мечтает каждая красотка, но далеко не все достойно делают этот шаг. Будьте тем, кто умеет удивлять!</p>
+
+          <p>Организация предложения руки и сердца от Мастерской Эмоций</p>
+
+          <p>Первое и самое важное, что нужно продумать — это необычный сценарий, с помощью которого вы хотите предложить своей даме выйти замуж. Будет ли это <a href="#">прогулка на катере</a> или <a href="#">полет на воздушном шаре</a> по самым ярким местам Москвы, решать вам. Наши организаторы устроят вам <a href="#">романтичный вечер</a> под ключ по индивидуальному сценарию, который выберите вы.</p>
+
+          <p>Предложение руки и сердца — тот торжественный момент для вашей пары, которого вы так долго ждали. Это незабываемый вечер или день, который вы потом будете с радостью вспоминать даже спустя много лет. И поэтому так важно сделать всё правильно, чтобы после предложения выйти замуж она воскликнула “Да!”. Наши специалисты сделают всё так, чтобы ничто не помешало вашему <a href="#">свиданию</a>. Если вы решили заказать мероприятие у нас, будьте уверены — всё пройдёт идеально.</p>
+
+          <p>Ваше сказочное предложение выйти замуж будет действительно незабываемым. Для этого наши опытные организаторы прикладывают максимум усилий:</p>
+
+          <ul>
+            <li>Тщательно разрабатываем сценарий проведения.</li>
+            <li>Помогаем выбрать подходящее место, где вы предложите выйти замуж.</li>
+            <li>Берём на себя всё оформление зала / помещения / пространства.</li>
+            <li>Подбираем романтическую атрибутику: свечи, цветы, воздушные шары, лепестки роз, ленты и т. д.</li>
+            <li>Строго контролируем, чтобы ничто не помешало вашему признанию в любви.</li>
+          </ul>
+
+          <p>Оригинальное предложение руки и сердца — реальная возможность подарить вам обоим спектр новых эмоций. Мы работаем над тем, чтобы ничто не испортило торжественности момента. Очень часто помощь в предложении руки и сердца любимой даёт возможность молодому человеку полностью раскрыться и показать силу своих чувств. Не упустите этот шанс и сделайте предложение выйти замуж так, каким оно должно быть.</p>
+
+          <p>Креативный подход к каждому торжеству в нашем агентстве позволяет добиться поразительных результатов. Хотите сделать предложение руки и сердца на башне Москва-Сити? Отлично, мы поможем! Давно мечтали залезть в окно своей дамы и признаться ей на автовышке? Нет ничего проще!</p>
+
+          <p>Хотите узнать, сколько стоит предложение руки и сердца? Посмотрите варианты сценариев, которые мы уже подготовили для других пар. Или позвоните, чтобы обсудить создание сценария предложения выйти замуж и цену уже сегодня.</p>
         </div>
       </div>
 
-      <div class="cards-grid">
-        <div class="cards-grid-inner">
-
-          <article class="card">
-              <div class="card-media">
-                  <div class="swiper card-swiper">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
-                      <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
-                      <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
-                      <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev">
-                      <img src="assets/img/chevron-left.svg" alt="chevron">
-                    </div>
-                    <div class="swiper-button-next">
-                      <img src="assets/img/chevron-right.svg" alt="chevron">
-                    </div>
-                  </div>
-                  <button class="fav">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                      <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
-                    </svg>
-                  </button>
-              </div>
-              <div class="card-body">
-                <a href="#" class="card-title">Романтический вечер в гостинице</a>
-                <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
-                <div class="card-meta">
-                  <span class="price">от 20 000₽</span>
-                </div>
-              </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media">
-                <div class="swiper card-swiper">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="swiper-button-prev">
-                    <img src="assets/img/chevron-left.svg" alt="chevron">
-                  </div>
-                  <div class="swiper-button-next">
-                    <img src="assets/img/chevron-right.svg" alt="chevron">
-                  </div>
-                </div>
-                <button class="fav">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                    <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
-                  </svg>
-                </button>
-            </div>
-            <div class="card-body">
-              <a class="card-title" href="#">Романтический вечер в гостинице</a>
-              <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
-              <div class="card-meta">
-                <span class="price">от 20 000₽</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media">
-                <div class="swiper card-swiper">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="swiper-button-prev">
-                    <img src="assets/img/chevron-left.svg" alt="chevron">
-                  </div>
-                  <div class="swiper-button-next">
-                    <img src="assets/img/chevron-right.svg" alt="chevron">
-                  </div>
-                </div>
-                <button class="fav">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                    <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
-                  </svg>
-                </button>
-            </div>
-            <div class="card-body">
-              <a class="card-title" href="#">Романтический вечер в гостинице</a>
-              <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
-              <div class="card-meta">
-                <span class="price">от 20 000₽</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media">
-                <div class="swiper card-swiper">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="swiper-button-prev">
-                    <img src="assets/img/chevron-left.svg" alt="chevron">
-                  </div>
-                  <div class="swiper-button-next">
-                    <img src="assets/img/chevron-right.svg" alt="chevron">
-                  </div>
-                </div>
-                <button class="fav">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                    <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
-                  </svg>
-                </button>
-            </div>
-            <div class="card-body">
-              <a class="card-title" href="#">Романтический вечер в гостинице</a>
-              <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
-              <div class="card-meta">
-                <span class="price">от 20 000₽</span>
-              </div>
-            </div>
-          </article>
-        </div>
-        
-      </div>
+      <button class="category-page-info-btn" id="showMoreBtn">Показать ещё</button>
     </section>
+
+
+
   </main>
 
   <footer class="site-footer">
@@ -814,23 +752,23 @@
   <script src="assets/js/swiper-bundle.min.js"></script>
   <!-- Swiper code -->
   <script>
-    // Swiper для карточки
-    document.querySelectorAll('.card-swiper').forEach(function(cardSwiper) {
+  // Swiper для карточки
+  document.querySelectorAll('.card-swiper').forEach(function(cardSwiper) {
       new Swiper(cardSwiper, {
-        direction: 'horizontal',
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 0,
-        pagination: {
+      direction: 'horizontal',
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      pagination: {
           el: cardSwiper.querySelector('.swiper-pagination'),
           clickable: true,
-        },
-        navigation: {
+      },
+      navigation: {
           nextEl: cardSwiper.querySelector('.swiper-button-next'),
           prevEl: cardSwiper.querySelector('.swiper-button-prev'),
-        },
+      },
       });
-    });
+  });
   </script>
   <!-- Main JS -->
   <script src="assets/js/main.js"></script>

@@ -213,3 +213,25 @@ clearBtn.addEventListener("click", () => {
   searchNav.classList.remove("active");
   searchInput.focus();
 });
+
+
+
+const catInfoOpenBtn = document.getElementById('showMoreBtn');
+const catInfoText = document.getElementById('textBlock');
+
+catInfoOpenBtn.addEventListener('click', () => {
+  const isOpen = catInfoText.classList.contains('open');
+  catInfoText.classList.toggle('open');
+
+  // Меняем текст кнопки
+  catInfoOpenBtn.textContent = isOpen ? 'Показать ещё' : 'Скрыть';
+
+  if (isOpen) {
+    const offsetTop = catInfoText.offsetTop - 40;
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth'
+    });
+  }
+});
+
