@@ -219,19 +219,208 @@ clearBtn.addEventListener("click", () => {
 const catInfoOpenBtn = document.getElementById('showMoreBtn');
 const catInfoText = document.getElementById('textBlock');
 
-catInfoOpenBtn.addEventListener('click', () => {
-  const isOpen = catInfoText.classList.contains('open');
-  catInfoText.classList.toggle('open');
+if (catInfoOpenBtn && catInfoText) {
+  catInfoOpenBtn.addEventListener('click', () => {
+    const isOpen = catInfoText.classList.contains('open');
+    catInfoText.classList.toggle('open');
 
-  // Меняем текст кнопки
-  catInfoOpenBtn.textContent = isOpen ? 'Показать ещё' : 'Скрыть';
+    // Меняем текст кнопки
+    catInfoOpenBtn.textContent = isOpen ? 'Показать ещё' : 'Скрыть';
 
-  if (isOpen) {
-    const offsetTop = catInfoText.offsetTop - 40;
-    window.scrollTo({
-      top: offsetTop,
-      behavior: 'smooth'
+    if (isOpen) {
+      const offsetTop = catInfoText.offsetTop - 40;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  });
+}
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.querySelector('.custom-select-wrapper');
+  const header = wrapper.querySelector('.custom-select-header');
+  const list = wrapper.querySelector('.custom-select-list');
+  const valueBox = wrapper.querySelector('.custom-value-right-box');
+  const realSelect = wrapper.querySelector('#realSelect');
+
+  // Клик по шапке — открывает/закрывает список
+  header.addEventListener('click', (e) => {
+    e.stopPropagation(); // чтобы не закрылось сразу
+    wrapper.classList.toggle('open');
+  });
+
+  // Клик по пункту
+  list.querySelectorAll('li').forEach((item) => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const value = item.dataset.value;
+      const text = item.textContent;
+
+      // Обновляем отображение
+      valueBox.textContent = text;
+
+      // Обновляем скрытый select
+      realSelect.value = value;
+
+      // Активный пункт
+      list.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+      item.classList.add('active');
+
+      // Закрыть список
+      wrapper.classList.remove('open');
     });
-  }
+  });
+
+  // Клик вне селекта — закрывает
+  document.addEventListener('click', (e) => {
+    if (!wrapper.contains(e.target)) {
+      wrapper.classList.remove('open');
+    }
+  });
 });
 
+
+
+
+document.querySelectorAll('.swx-acc-header').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const content = item.querySelector('.swx-acc-content');
+
+    if (item.classList.contains('active')) {
+      // закрытие
+      content.style.maxHeight = content.scrollHeight + 'px';
+      requestAnimationFrame(() => {
+        content.style.maxHeight = '0';
+      });
+      item.classList.remove('active');
+    } else {
+      // открытие
+      content.style.maxHeight = content.scrollHeight + 'px';
+      item.classList.add('active');
+      content.addEventListener('transitionend', function handler() {
+        content.style.maxHeight = 'none';
+        content.removeEventListener('transitionend', handler);
+      });
+    }
+  });
+});
+
+
+document.querySelectorAll('.card-swiper').forEach(function(cardSwiper) {
+    new Swiper(cardSwiper, {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    pagination: {
+        el: cardSwiper.querySelector('.swiper-pagination'),
+        clickable: true,
+    },
+    navigation: {
+        nextEl: cardSwiper.querySelector('.swiper-button-next'),
+        prevEl: cardSwiper.querySelector('.swiper-button-prev'),
+    },
+    });
+});
+
+
+const promoSwiper = new Swiper('.promo-swiper', {
+  slidesPerView: 2,
+  spaceBetween: 24,
+  slidesPerGroup: 2,
+  loop: true,
+  navigation: {
+    nextEl: '.promo-unique-slider-btn-next',
+    prevEl: '.promo-unique-slider-btn-prev',
+  },
+  pagination: {
+    el: '.promo-unique-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 12,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    }
+  },
+});
+
+
+const faqItems = document.querySelectorAll(".service-page-faq__item");
+
+faqItems.forEach(item => {
+  const header = item.querySelector(".service-page-faq__header");
+
+  header.addEventListener("click", () => {
+    const openItem = document.querySelector(".service-page-faq__item.active");
+
+    if (openItem && openItem !== item) {
+      openItem.classList.remove("active");
+      openItem.querySelector(".service-page-faq__body").style.maxHeight = 0;
+    }
+
+    item.classList.toggle("active");
+    const body = item.querySelector(".service-page-faq__body");
+
+    if (item.classList.contains("active")) {
+      body.style.maxHeight = body.scrollHeight + "px";
+    } else {
+      body.style.maxHeight = 0;
+    }
+  });
+});
+
+
+const moreBtn = document.getElementById('roofDateMoreBtn');
+const moreText = document.getElementById('roofDateMoreText');
+
+if (moreBtn && moreText) {
+  moreBtn.addEventListener('click', () => {
+    const isOpen = moreText.style.maxHeight && moreText.style.maxHeight !== '0px';
+    if (isOpen) {
+      moreText.style.maxHeight = '0';
+      moreBtn.classList.remove('open');
+      moreBtn.textContent = 'Подробнее';
+    } else {
+      moreText.style.maxHeight = moreText.scrollHeight + 'px';
+      moreBtn.classList.add('open');
+      moreBtn.textContent = 'Скрыть';
+    }
+  });
+}
+
+
+document.querySelectorAll('.rbox-accordion-title').forEach(title => {
+  const content = title.parentElement.querySelector('.accordion-content');
+  if (title.classList.contains('open')) {
+    content.style.maxHeight = 'none';
+  }
+  title.addEventListener('click', () => {
+    const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+    if (isOpen) {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      void content.offsetWidth;
+      content.style.maxHeight = '0';
+      title.classList.remove('open');
+    } else {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      title.classList.add('open');
+      content.addEventListener('transitionend', function handler(e) {
+        if (title.classList.contains('open')) {
+          content.style.maxHeight = 'none';
+        }
+        content.removeEventListener('transitionend', handler);
+      });
+    }
+  });
+});

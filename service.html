@@ -1,0 +1,1356 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no">
+  <title>Мастерская эмоций — Главная</title>
+  <!-- Swiper -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <div class="page-blur"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-controls">
+        <img class="logo" src="assets/img/Logo.svg" alt="Logo">
+        <div class="header-controls-wrap">
+          <button id="catalogBtn" 
+          class="btn ghost" 
+          aria-expanded="false" 
+          aria-controls="catalogPanel">
+          <span class="icon"></span>
+          <p>Каталог</p>
+        </button>
+        <div class="search-nav search-nav-main" >
+          <input type="search" id="searchInput" placeholder="Найти эмоции..." />
+          <button class="search-clear" id="clearBtn" aria-label="Очистить">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path fill="#6A6A6A" fill-opacity=".6" d="M12.53 11.385a.66.66 0 0 1-.007.92.661.661 0 0 1-.925.005L7.994 8.707 4.391 12.31a.673.673 0 0 1-.926-.005.66.66 0 0 1 0-.92l3.603-3.61-3.603-3.603c-.246-.24-.246-.668 0-.926a.667.667 0 0 1 .926 0L7.994 6.85l3.604-3.604a.661.661 0 0 1 .925.006.654.654 0 0 1 .006.92L8.926 7.775l3.603 3.61Z"/>
+            </svg>
+          </button>
+          <button class="search-box search-finder" id="searchBtn" aria-label="Поиск">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+              <path fill="#6A6A6A" fill-opacity=".6" d="M1.807 8.496A6.763 6.763 0 0 1 8.564 1.74a6.763 6.763 0 0 1 6.757 6.757 6.605 6.605 0 0 1-1.262 3.885l3.793 3.802c.225.232.34.54.34.871 0 .69-.506 1.22-1.211 1.22a1.21 1.21 0 0 1-.88-.348l-3.818-3.819a6.57 6.57 0 0 1-3.719 1.146 6.763 6.763 0 0 1-6.757-6.757Zm1.727 0c0 2.78 2.25 5.03 5.03 5.03 2.78 0 5.03-2.25 5.03-5.03 0-2.78-2.25-5.03-5.03-5.03-2.78 0-5.03 2.25-5.03 5.03Z"/>
+            </svg>
+          </button>
+        </div>
+
+        </div>
+        <div class="header-controls-wrap-2">
+          <a href="#">
+            <div class="fav-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path fill="#222" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+              </svg>
+            </div>
+          </a>
+          <button id="menuBtn" class="btn" 
+          aria-expanded="false" 
+          aria-controls="menuPanel" 
+          aria-haspopup="true" 
+          aria-label="Открыть меню">
+            <span class="icon"></span>
+            <p>Меню</p>
+        </button>
+        </div>
+        <!-- Menu panel -->
+        <div id="menuPanel" class="panel menu-panel" hidden aria-hidden="true" role="menu" aria-label="Меню сайта">
+          <div class="container">
+            <ul class="menu-list" role="list">
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-1.svg" alt="menu-icon">Контакты</a></li>
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-2.svg" alt="menu-icon">Отзывы</a></li>
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-3.svg" alt="menu-icon">Блог</a></li>
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-4.svg" alt="menu-icon">Сертификат</a></li>
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-5.svg" alt="menu-icon">Франшиза</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <div class="search-nav search-nav-panel" >
+    <input type="search" id="searchInputPanel" placeholder="Найти эмоции..." />
+    <button class="search-clear" id="clearBtn" aria-label="Очистить">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+        <path fill="#6A6A6A" fill-opacity=".6" d="M12.53 11.385a.66.66 0 0 1-.007.92.661.661 0 0 1-.925.005L7.994 8.707 4.391 12.31a.673.673 0 0 1-.926-.005.66.66 0 0 1 0-.92l3.603-3.61-3.603-3.603c-.246-.24-.246-.668 0-.926a.667.667 0 0 1 .926 0L7.994 6.85l3.604-3.604a.661.661 0 0 1 .925.006.654.654 0 0 1 .006.92L8.926 7.775l3.603 3.61Z"/>
+      </svg>
+    </button>
+    <button class="search-box" id="searchBtn" aria-label="Поиск">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+        <path fill="#6A6A6A" fill-opacity=".6" d="M1.807 8.496A6.763 6.763 0 0 1 8.564 1.74a6.763 6.763 0 0 1 6.757 6.757 6.605 6.605 0 0 1-1.262 3.885l3.793 3.802c.225.232.34.54.34.871 0 .69-.506 1.22-1.211 1.22a1.21 1.21 0 0 1-.88-.348l-3.818-3.819a6.57 6.57 0 0 1-3.719 1.146 6.763 6.763 0 0 1-6.757-6.757Zm1.727 0c0 2.78 2.25 5.03 5.03 5.03 2.78 0 5.03-2.25 5.03-5.03 0-2.78-2.25-5.03-5.03-5.03-2.78 0-5.03 2.25-5.03 5.03Z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Catalog panel -->
+  <div id="catalogPanel" class="panel catalog-panel" aria-hidden="true" role="region" aria-label="Каталог">
+    <div class="container">
+      <div class="catalog-grid">
+        <a class="cat-item" href="#">
+          <img src="assets/img/cat-1.svg" alt="">
+          Предложение руки и сердца
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Романтические свидания
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Организация свадьбы
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Выписка из роддома
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Мальчишник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Девичник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Фотосессия
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Гендерные праздники
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Флешмоб
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Выписка из роддома
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Мальчишник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Девичник
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <main>
+    <!-- Breadcrumbs -->
+    <nav class="page-breadcrumbs container" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+        <li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="index.html" itemprop="item">
+            <span itemprop="name">Главная</span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
+
+        <li class="breadcrumbs-separator" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+            <path fill="#6A6A6A" fill-opacity=".6" d="M11.75 7.77c0 .199-.07.369-.229.521l-4.57 4.47a.645.645 0 0 1-.474.194.674.674 0 0 1-.686-.68c0-.187.082-.357.205-.486l4.125-4.02L5.996 3.75a.707.707 0 0 1-.205-.492c0-.381.305-.674.686-.674.187 0 .345.064.474.193l4.57 4.471a.712.712 0 0 1 .229.522Z"/>
+          </svg>
+        </li>
+
+        <li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="index.html" itemprop="item">
+            <span itemprop="name">Романтический вечер</span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
+
+        <li class="breadcrumbs-separator" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+            <path fill="#6A6A6A" fill-opacity=".6" d="M11.75 7.77c0 .199-.07.369-.229.521l-4.57 4.47a.645.645 0 0 1-.474.194.674.674 0 0 1-.686-.68c0-.187.082-.357.205-.486l4.125-4.02L5.996 3.75a.707.707 0 0 1-.205-.492c0-.381.305-.674.686-.674.187 0 .345.064.474.193l4.57 4.471a.712.712 0 0 1 .229.522Z"/>
+          </svg>
+        </li>
+
+        <li class="breadcrumbs-item current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Романтическое свидание на крыше в центре Москвы</span>
+          <meta itemprop="position" content="3" />
+        </li>
+
+      </ol>
+    </nav>
+
+    <section class="service-page-gallery container">
+        <div class="service-page-gallery-wrap">
+            <div class="service-page-gallery-item service-page-gallery-item-video">
+                <img src="assets/img/card-1.jpg" alt="card">
+                <div class="service-page-gallery-item-video-playbtn" id="play-gal-video">
+                    <img src="assets/img/play-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="service-page-gallery-item">
+                <img src="assets/img/card-2.jpg" alt="card">
+            </div>
+            <div class="service-page-gallery-inner-wrap">
+                <div class="service-page-gallery-item">
+                    <img src="assets/img/card-3.jpg" alt="card">
+                </div>
+                <div class="service-page-gallery-item">
+                    <img src="assets/img/card-4.jpg" alt="card">
+                </div>
+                <div class="service-page-gallery-item">
+                    <img src="assets/img/card-3.jpg" alt="card">
+                </div>
+                <div class="service-page-gallery-item">
+                    <img src="assets/img/card-2.jpg" alt="card">
+                    <div class="service-page-gallery-item-opener">
+                        <img src="assets/img/pic-icon.svg" alt="pic-icon">
+                        <span>Все фото и видео</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-page-wrapper container">
+        <div class="service-page-content">
+
+
+          <div class="service-page-info-block">
+            <div class="service-header">
+              <h1 class="service-header__title">
+                Романтическое свидание <br> на крыше в центре Москвы
+              </h1>
+              <div class="service-header__meta">
+                <div class="service-header__rating">
+                  <span class="service-header__rating-value">4.88</span>
+                  <span class="service-header__stars">
+                    <img src="assets/img/rate-star.svg" alt="star">
+                    <img src="assets/img/rate-star.svg" alt="star">
+                    <img src="assets/img/rate-star.svg" alt="star">
+                    <img src="assets/img/rate-star.svg" alt="star">
+                    <img src="assets/img/rate-star.svg" alt="star">
+                  </span>
+                  <div class="service-header__reviews">24 <a href="#">Отзывы</a></div>
+                </div>
+                <div class="service-header__actions">
+                  <button class="service-header__btn">
+                    <img src="assets/img/share-serv.svg" alt="share">
+                    <span>Поделиться</span>
+                  </button>
+                  <button class="service-header__btn service-header__btn--save">
+                    <img src="assets/img/save-heart.svg" alt="heart">
+                    <span>Сохранить</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <ul class="service-benefits">
+              <li class="service-benefit">
+                <div class="service-benefit__icon">
+                  <img src="assets/img/bens-1.svg" alt="bens">
+                </div>
+                <div class="service-benefit__text">
+                  <h3 class="service-benefit__title">Организуем за 1 день</h3>
+                  <p class="service-benefit__desc">
+                    Получите полный возврат средств, если передумаете и сообщите нам за
+                    48 часов до мероприятия
+                  </p>
+                </div>
+              </li>
+              <li class="service-benefit">
+                <div class="service-benefit__icon">
+                  <img src="assets/img/bens-2.svg" alt="bens">
+                </div>
+                <div class="service-benefit__text">
+                  <h3 class="service-benefit__title">Бесплатная отмена за 48 часов</h3>
+                  <p class="service-benefit__desc">
+                    Получите полный возврат средств, если передумаете и сообщите нам за
+                    48 часов до мероприятия
+                  </p>
+                </div>
+              </li>
+              <li class="service-benefit">
+                <div class="service-benefit__icon">
+                  <img src="assets/img/bens-3.svg" alt="bens">
+                </div>
+                <div class="service-benefit__text">
+                  <h3 class="service-benefit__title">Бесплатная отмена за 48 часов</h3>
+                  <p class="service-benefit__desc">
+                    Получите полный возврат средств, если передумаете и сообщите нам за
+                    48 часов до мероприятия
+                  </p>
+                </div>
+              </li>
+              <li class="service-benefit">
+                <div class="service-benefit__icon">
+                  <img src="assets/img/bens-4.svg" alt="bens">
+                </div>
+                <div class="service-benefit__text">
+                  <h3 class="service-benefit__title">Бесплатная отмена за 48 часов</h3>
+                  <p class="service-benefit__desc">
+                    Получите полный возврат средств, если передумаете и сообщите нам за
+                    48 часов до мероприятия
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="roof-date">
+            <div class="roof-date__intro">
+              <h2 class="roof-date__title">Уникальное свидание на крыше</h2>
+
+              <div class="roof-date__video" style="background: url(assets/img/card-1-wide.jpg);">
+                <div class="service-page-gallery-item-video-playbtn">
+                    <img src="assets/img/play-icon.svg" alt="">
+                </div>
+              </div>
+
+              <p class="roof-date__desc">
+                На крыше Вы будете только вдвоем, никого больше! 120 квадратов в Вашем
+                личном распоряжении, только один домик, только одни гости, такое решение
+                мы приняли когда открывались в далеком 2014 году! Мы сделали всё, чтобы
+                Ваш отдых прошел на высшем уровне!
+              </p>
+
+              <p class="roof-date__desc">
+                Доступные цены за уникальное для Москвы мероприятие, первая в Москве
+                официальная площадка с радиусом обзора 360 градусов, находится на крыше
+                самого дорогого пентхауса, а вход проходит через зимний сад и двор с
+                позолоченными статуями!
+              </p>
+
+              <div class="roof-date__more-text" id="roofDateMoreText" style="max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1);">
+                <p class="roof-date__desc">
+                  Доступные цены за уникальное для Москвы мероприятие, первая в Москве
+                  официальная площадка с радиусом обзора 360 градусов, находится на крыше
+                  самого дорогого пентхауса, а вход проходит через зимний сад и двор с
+                  позолоченными статуями!
+                </p>
+              </div>
+              <button class="roof-date__btn" id="roofDateMoreBtn">
+                Подробнее
+                <img src="assets/img/btn-chevron-down.svg" alt="chevron">
+              </button>
+            </div>
+
+            <div class="roof-date__location">
+              <h3 class="roof-date__subtitle">Локация</h3>
+              <p class="roof-date__text">
+                Место где будет проходить мероприятие. В зависимости от выбранной локации
+                может изменяться состав пакета услуг, а так же состав или доступность
+                дополнительных услуг.
+              </p>
+
+              <div class="location-card">
+                <div class="location-card__map" style="background: url(assets/img/map-preview.jpg);"></div>
+                <div class="location-card__info">
+                  <div class="location-card__info-text">
+                    <h4 class="location-card__title">Название локации #1</h4>
+                    <p class="location-card__address">
+                      Москва, 1 Неопалимовский переулок 8
+                    </p>
+                  </div>
+                  <div class="location-card__info-buttons">
+                    <button class="location-card-copy-btn"><img src="assets/img/copy.svg" alt="copy"></button>
+                    <button class="location-card-more-btn"><span>Подробнее</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="roof-date__included">
+              <h3 class="roof-date__subtitle">Что входит</h3>
+              <p class="roof-date__text">
+                Что входит в стоимость каждого пакета услуги
+              </p>
+
+              <div class="included-list">
+                <div class="included-item">
+                  <img src="assets/img/int-1.jpg" alt="incl" class="included-item__img" />
+                  <div>
+                    <h4 class="included-item__title">Полностью укомплектованная крыша</h4>
+                    <p class="included-item__desc">Дополнительное описание</p>
+                  </div>
+                </div>
+
+                <div class="included-item">
+                  <img src="assets/img/int-2.jpg" alt="incl" class="included-item__img" />
+                  <div>
+                    <h4 class="included-item__title">Чай и сок</h4>
+                    <p class="included-item__desc">
+                      Чайник чая (чёрный, зелёный или жасминовый...
+                    </p>
+                  </div>
+                </div>
+
+                <div class="included-item">
+                  <img src="assets/img/int-3.jpg" alt="incl" class="included-item__img" />
+                  <div>
+                    <h4 class="included-item__title">Сферический панорамный домик</h4>
+                    <p class="included-item__desc">С отоплением и кондиционированием. Зи...</p>
+                  </div>
+                </div>
+
+                <div class="included-item">
+                  <img src="assets/img/int-4.jpg" alt="incl" class="included-item__img" />
+                  <div>
+                    <h4 class="included-item__title">Фруктовая тарелка</h4>
+                    <p class="included-item__desc">
+                      Различные виды сезонных фруктов. Персики, абрико...
+                    </p>
+                  </div>
+                </div>
+
+                <div class="included-item">
+                  <img src="assets/img/int-5.jpg" alt="incl" class="included-item__img" />
+                  <div>
+                    <h4 class="included-item__title">Вид на Москву 360°</h4>
+                    <p class="included-item__desc">
+                      Волшебный вид на Москву с обзором 360 градусов
+                    </p>
+                  </div>
+                </div>
+
+                <div class="included-item">
+                  <img src="assets/img/int-6.jpg" alt="incl" class="included-item__img" />
+                  <div>
+                    <h4 class="included-item__title">Конфеты "Raffaello"</h4>
+                    <p class="included-item__desc">Различные виды сезонных фруктов. Персики, абрико...</p>
+                  </div>
+                </div>
+              </div>
+
+              <button class="serv-page-included__btn">
+                <img src="assets/img/all-inc.svg" alt="all">
+                <span>Все (15)</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="swx-price-section">
+            <h2 class="swx-title">Пакеты цен и услуг</h2>
+            <p class="swx-subtitle">На каждый пакет доступны рассрочки</p>
+
+            <div class="swx-package-list">
+              <div class="swx-package">
+                <div class="swx-package-image">
+                  <img src="assets/img/card-1.jpg" class="swx-img" alt="swx">
+                  <div class="swx-package-image-play">
+                    <img src="assets/img/play-sm.svg" alt="play">
+                  </div>
+                </div>
+                <div class="swx-info">
+                  <h3 class="swx-name">Карлсон</h3>
+                  <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
+                  <div class="swx-price">
+                    <span class="swx-current">59 900 ₽</span>
+                    <span class="swx-old">71 400 ₽</span>
+                    <span class="swx-sale">−11 500 ₽</span>
+                  </div>
+                  <div class="swx-actions">
+                    <button class="swx-btn swx-choose swx-choose-active">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path fill="#fff" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm0-2.19a8.899 8.899 0 0 0 8.916-8.906A8.908 8.908 0 0 0 12 3.328a8.908 8.908 0 0 0-8.916 8.916A8.899 8.899 0 0 0 12 21.15Zm-1.16-3.803c-.398 0-.71-.162-1-.537l-2.534-3.094c-.183-.226-.28-.462-.28-.72 0-.537.42-.956.946-.956.311 0 .569.118.827.451l1.998 2.546 4.243-6.81c.226-.366.516-.538.838-.538.505 0 .977.355.977.881 0 .247-.128.505-.268.73l-4.802 7.51c-.225.343-.558.537-.945.537Z"/>
+                      </svg>
+                      <span>Выбрано</span>
+                    </button>
+                    <button class="swx-btn swx-more">
+                      <span>Подробнее</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swx-package">
+                <div class="swx-package-image">
+                  <img src="assets/img/card-2.jpg" class="swx-img" alt="swx">
+                  <div class="swx-package-image-play">
+                    <img src="assets/img/play-sm.svg" alt="play">
+                  </div>
+                </div>
+                <div class="swx-info">
+                  <h3 class="swx-name">Особенный день</h3>
+                  <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
+                  <div class="swx-price">
+                    <span class="swx-current">93 900 ₽</span>
+                    <span class="swx-old">115 230 ₽</span>
+                    <span class="swx-sale">−21 330 ₽</span>
+                  </div>
+                  <div class="swx-actions">
+                    <button class="swx-btn swx-choose">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
+                      </svg>
+                      <span>Выбрать</span>
+                    </button>
+                    <button class="swx-btn swx-more">
+                      <span>Подробнее</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swx-package">
+                <div class="swx-package-image">
+                  <img src="assets/img/card-3.jpg" class="swx-img" alt="swx">
+                  <div class="swx-package-image-play">
+                    <img src="assets/img/play-sm.svg" alt="play">
+                  </div>
+                </div>
+                <div class="swx-info">
+                  <h3 class="swx-name">Идеальное свидание</h3>
+                  <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
+                  <div class="swx-price">
+                    <span class="swx-current">129 900 ₽</span>
+                    <span class="swx-old">161 330 ₽</span>
+                    <span class="swx-sale">−31 430 ₽</span>
+                  </div>
+                  <div class="swx-actions">
+                    <button class="swx-btn swx-choose">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
+                      </svg>
+                      <span>Выбрать</span>
+                    </button>
+                    <button class="swx-btn swx-more">
+                      <span>Подробнее</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swx-package">
+                <div class="swx-package-image">
+                  <img src="assets/img/card-4.jpg" class="swx-img" alt="swx">
+                  <div class="swx-package-image-play">
+                    <img src="assets/img/play-sm.svg" alt="play">
+                  </div>
+                </div>
+                <div class="swx-info">
+                  <h3 class="swx-name">На все 360°</h3>
+                  <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
+                  <div class="swx-price">
+                    <span class="swx-current">360 000 ₽</span>
+                  </div>
+                  <div class="swx-actions">
+                    <button class="swx-btn swx-choose">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
+                      </svg>
+                      <span>Выбрать</span>
+                    </button>
+                    <button class="swx-btn swx-more">
+                      <span>Подробнее</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="swx-extra-title">Дополнительные услуги</h3>
+            <p class="swx-note">Добавьте то, что вам нужно. Сделайте ваше свидание ещё приятнее.</p>
+
+            <div class="swx-accordion">
+              <div class="swx-acc-item active">
+                <button class="swx-acc-header">
+                  <div class="swx-acc-header-title">
+                    <img src="assets/img/acc-1.svg" alt="acc-icon">
+                    <span>Музыка</span>
+                  </div>
+                  <div class="swx-acc-header-controls">
+                    <div class="swx-acc-header-arrow-box">
+                      <img src="assets/img/acc-arrow.svg" alt="arrow">
+                    </div>
+                  </div>
+                </button>
+                <div class="swx-acc-content">
+                  <div class="swx-service">
+                    <img src="assets/img/swx-add.jpg" alt="additional">
+                    <div>
+                      <div class="swx-acc-add-title">Скрипка</div>
+                      <p>Добавьте особую атмосферу и нотку романтики.</p>
+                      <button class="swx-service-price">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                          <path fill="#222" d="M10 18.581c-4.731 0-8.575-3.843-8.575-8.574 0-4.732 3.844-8.575 8.575-8.575s8.575 3.843 8.575 8.575c0 4.731-3.844 8.574-8.575 8.574Zm-.008-4.59c.481 0 .821-.34.821-.813v-2.366h2.366c.473 0 .814-.332.814-.805 0-.482-.34-.822-.814-.822h-2.366V6.828c0-.482-.34-.822-.821-.822-.473 0-.805.34-.805.822v2.357H6.829c-.481 0-.822.34-.822.822 0 .473.349.805.822.805h2.358v2.366c0 .465.332.813.805.813Z"/>
+                        </svg>
+                        <span>26 900 ₽</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="swx-service">
+                    <img src="assets/img/swx-add.jpg" alt="additional">
+                    <div>
+                      <div class="swx-acc-add-title">Саксофон</div>
+                      <p>Добавьте особую атмосферу и нотку романтики.</p>
+                      <button class="swx-service-price">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                          <path fill="#222" d="M10 18.581c-4.731 0-8.575-3.843-8.575-8.574 0-4.732 3.844-8.575 8.575-8.575s8.575 3.843 8.575 8.575c0 4.731-3.844 8.574-8.575 8.574Zm-.008-4.59c.481 0 .821-.34.821-.813v-2.366h2.366c.473 0 .814-.332.814-.805 0-.482-.34-.822-.814-.822h-2.366V6.828c0-.482-.34-.822-.821-.822-.473 0-.805.34-.805.822v2.357H6.829c-.481 0-.822.34-.822.822 0 .473.349.805.822.805h2.358v2.366c0 .465.332.813.805.813Z"/>
+                        </svg>
+                        <span>26 900 ₽</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swx-acc-item active">
+                <button class="swx-acc-header">
+                  <div class="swx-acc-header-title">
+                    <img src="assets/img/acc-2.svg" alt="acc-icon">
+                    <span>Подарки</span>
+                  </div>
+                  <div class="swx-acc-header-controls">
+                    <div class="swx-acc-header-count">
+                      <span class="swx-acc-header-count-value">1</span>
+                    </div>
+                    <div class="swx-acc-header-arrow-box">
+                      <img src="assets/img/acc-arrow.svg" alt="arrow">
+                    </div>
+                  </div>
+                </button>
+                <div class="swx-acc-content">
+                  <div class="swx-service">
+                    <img src="assets/img/swx-add.jpg" alt="additional">
+                    <div>
+                      <div class="swx-acc-add-title">Букет роз / Красные</div>
+                      <p>101 свежих красных роз 70 см</p>
+                      <button class="swx-service-price swx-service-price-active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                          <path fill="#fff" d="M10 18.581c-4.731 0-8.575-3.843-8.575-8.574 0-4.732 3.844-8.575 8.575-8.575s8.575 3.843 8.575 8.575c0 4.731-3.844 8.574-8.575 8.574Zm0-1.693c3.81 0 6.89-3.071 6.89-6.881s-3.08-6.89-6.89-6.89c-3.81 0-6.89 3.08-6.89 6.89 0 3.81 3.08 6.881 6.89 6.881Zm-.896-2.938c-.308 0-.548-.125-.772-.415l-1.96-2.391a.87.87 0 0 1-.215-.556c0-.415.323-.739.73-.739.24 0 .44.091.64.349l1.543 1.967 3.28-5.263c.173-.282.398-.415.647-.415.39 0 .755.274.755.681 0 .19-.1.39-.208.564l-3.71 5.803c-.174.265-.432.415-.73.415Z"/>
+                        </svg>
+                        <span>26 900 ₽</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swx-acc-item">
+                <button class="swx-acc-header">
+                  <div class="swx-acc-header-title">
+                    <img src="assets/img/acc-3.svg" alt="acc-icon">
+                    <span>Развлечения</span>
+                  </div>
+                  <div class="swx-acc-header-controls">
+                    <div class="swx-acc-header-arrow-box">
+                      <img src="assets/img/acc-arrow.svg" alt="arrow">
+                    </div>
+                  </div>
+                </button>
+                <div class="swx-acc-content"></div>
+              </div>
+              <div class="swx-acc-item">
+                <button class="swx-acc-header">
+                  <div class="swx-acc-header-title">
+                    <img src="assets/img/acc-4.svg" alt="acc-icon">
+                    <span>Оформление</span>
+                  </div>
+                  <div class="swx-acc-header-controls">
+                    <div class="swx-acc-header-count">
+                      <span class="swx-acc-header-count-value">2</span>
+                    </div>
+                    <div class="swx-acc-header-arrow-box">
+                      <img src="assets/img/acc-arrow.svg" alt="arrow">
+                    </div>
+                  </div>
+                </button>
+                <div class="swx-acc-content"></div>
+              </div>
+              <div class="swx-acc-item">
+                <button class="swx-acc-header">
+                  <div class="swx-acc-header-title">
+                    <img src="assets/img/acc-5.svg" alt="acc-icon">
+                    <span>Напитки</span>
+                  </div>
+                  <div class="swx-acc-header-arrow-box">
+                    <img src="assets/img/acc-arrow.svg" alt="arrow">
+                  </div>
+                </button>
+                <div class="swx-acc-content"></div>
+              </div>
+              <div class="swx-acc-item">
+                <button class="swx-acc-header">
+                  <div class="swx-acc-header-title">
+                    <img src="assets/img/acc-6.svg" alt="acc-icon">
+                    <span>Еда</span>
+                  </div>
+                  <div class="swx-acc-header-arrow-box">
+                    <img src="assets/img/acc-arrow.svg" alt="arrow">
+                  </div>
+                </button>
+                <div class="swx-acc-content"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-page-promo-sec">
+            <div class="promo-header-unique">
+              <div class="promo-title-unique">Акции</div>
+              <div class="promo-desc-unique-wrapper">
+                <p class="promo-desc-unique">
+                  Организация вашего свидания доступна на 
+                  2 локациях на ваш выбор. Доступные даты зависят
+                  от выбранной локации.
+                </p>
+                <div class="promo-unique-slider-controls">
+                  <button class="promo-unique-slider-btn promo-unique-slider-btn-prev">
+                    <img src="assets/img/chevron-left.svg" alt="left">
+                  </button>
+                  <div class="promo-unique-pagination"></div>
+                  <button class="promo-unique-slider-btn promo-unique-slider-btn-next">
+                    <img src="assets/img/chevron-right.svg" alt="right">
+                  </button>
+                </div>
+              </div>
+            </div>  
+
+            <div class="promo-slider-unique swiper promo-swiper" aria-label="Акции">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="promo-card-unique">
+                  <div class="promo-label-unique">АКЦИЯ</div>
+                  <img src="assets/img/promo-slid.jpg" alt="Фотосессия в подарок" class="promo-image-unique">
+                  <div class="promo-content-unique">
+                    <h3 class="promo-card-title-unique">Фотосессия в подарок</h3>
+                    <p class="promo-card-text-unique">
+                    Профессиональная фотосессия и обработанные фотографии.
+                    </p>
+                    <div class="promo-buttons-unique">
+                    <button class="promo-btn-main-unique">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                      <path fill="#222" d="M10 18.581c-4.731 0-8.575-3.843-8.575-8.574 0-4.732 3.844-8.575 8.575-8.575s8.575 3.843 8.575 8.575c0 4.731-3.844 8.574-8.575 8.574Zm-.008-4.59c.481 0 .821-.34.821-.813v-2.366h2.366c.473 0 .814-.332.814-.805 0-.482-.34-.822-.814-.822h-2.366V6.828c0-.482-.34-.822-.821-.822-.473 0-.805.34-.805.822v2.357H6.829c-.481 0-.822.34-.822.822 0 .473.349.805.822.805h2.358v2.366c0 .465.332.813.805.813Z"/>
+                      </svg>
+                      <span>Применить</span>
+                    </button>
+                    <button class="promo-btn-second-unique">
+                      <span>Подробнее</span>
+                    </button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="promo-card-unique">
+                  <div class="promo-label-unique">АКЦИЯ</div>
+                  <img src="assets/img/promo-slid.jpg" alt="10% скидка в День рождения" class="promo-image-unique">
+                  <div class="promo-content-unique">
+                    <h3 class="promo-card-title-unique">10% скидка в День рождения</h3>
+                    <p class="promo-card-text-unique">
+                    10% скидка и метровые цифры в подарок в день рождения или годовщину.
+                    </p>
+                    <div class="promo-buttons-unique">
+                    <button class="promo-btn-main-unique">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                      <path fill="#222" d="M10 18.581c-4.731 0-8.575-3.843-8.575-8.574 0-4.732 3.844-8.575 8.575-8.575s8.575 3.843 8.575 8.575c0 4.731-3.844 8.574-8.575 8.574Zm-.008-4.59c.481 0 .821-.34.821-.813v-2.366h2.366c.473 0 .814-.332.814-.805 0-.482-.34-.822-.814-.822h-2.366V6.828c0-.482-.34-.822-.821-.822-.473 0-.805.34-.805.822v2.357H6.829c-.481 0-.822.34-.822.822 0 .473.349.805.822.805h2.358v2.366c0 .465.332.813.805.813Z"/>
+                      </svg>
+                      <span>Применить</span>
+                    </button>
+                    <button class="promo-btn-second-unique">
+                      <span>Подробнее</span>
+                    </button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="promo-card-unique">
+                  <div class="promo-label-unique">АКЦИЯ</div>
+                  <img src="assets/img/promo-slid.jpg" alt="Фотосессия в подарок" class="promo-image-unique">
+                  <div class="promo-content-unique">
+                    <h3 class="promo-card-title-unique">Фотосессия в подарок</h3>
+                    <p class="promo-card-text-unique">
+                    Профессиональная фотосессия и обработанные фотографии.
+                    </p>
+                    <div class="promo-buttons-unique">
+                    <button class="promo-btn-main-unique">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                      <path fill="#222" d="M10 18.581c-4.731 0-8.575-3.843-8.575-8.574 0-4.732 3.844-8.575 8.575-8.575s8.575 3.843 8.575 8.575c0 4.731-3.844 8.574-8.575 8.574Zm-.008-4.59c.481 0 .821-.34.821-.813v-2.366h2.366c.473 0 .814-.332.814-.805 0-.482-.34-.822-.814-.822h-2.366V6.828c0-.482-.34-.822-.821-.822-.473 0-.805.34-.805.822v2.357H6.829c-.481 0-.822.34-.822.822 0 .473.349.805.822.805h2.358v2.366c0 .465.332.813.805.813Z"/>
+                      </svg>
+                      <span>Применить</span>
+                    </button>
+                    <button class="promo-btn-second-unique">
+                      <span>Подробнее</span>
+                    </button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="promo-card-unique">
+                  <div class="promo-label-unique">АКЦИЯ</div>
+                  <img src="assets/img/promo-slid.jpg" alt="10% скидка в День рождения" class="promo-image-unique">
+                  <div class="promo-content-unique">
+                    <h3 class="promo-card-title-unique">10% скидка в День рождения</h3>
+                    <p class="promo-card-text-unique">
+                    10% скидка и метровые цифры в подарок в день рождения или годовщину.
+                    </p>
+                    <div class="promo-buttons-unique">
+                    <button class="promo-btn-main-unique">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                      <path fill="#222" d="M10 18.581c-4.731 0-8.575-3.843-8.575-8.574 0-4.732 3.844-8.575 8.575-8.575s8.575 3.843 8.575 8.575c0 4.731-3.844 8.574-8.575 8.574Zm-.008-4.59c.481 0 .821-.34.821-.813v-2.366h2.366c.473 0 .814-.332.814-.805 0-.482-.34-.822-.814-.822h-2.366V6.828c0-.482-.34-.822-.821-.822-.473 0-.805.34-.805.822v2.357H6.829c-.481 0-.822.34-.822.822 0 .473.349.805.822.805h2.358v2.366c0 .465.332.813.805.813Z"/>
+                      </svg>
+                      <span>Применить</span>
+                    </button>
+                    <button class="promo-btn-second-unique">
+                      <span>Подробнее</span>
+                    </button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="service-page-revws-sec">
+            <div class="reviews-header-unique">
+              <div class="reviews-title-unique">
+                <span>Отзывы</span>
+                <div class="reviews-rating-unique">
+                  <img src="assets/img/big-star.svg" alt="star">
+                  4.88
+                </div>
+              </div>
+              <p class="reviews-desc-unique">Что отмечают наши гости в нашей работе</p>
+            </div>
+
+            <div class="reviews-tags-unique">
+              <div class="service-page-reviews-tag">
+                <img src="assets/img/bens-2.svg" alt="bens">
+                Классная атмосфера
+              </div>
+              <div class="service-page-reviews-tag">
+                <img src="assets/img/bens-3.svg" alt="bens">
+                Вежливый персонал
+              </div>
+              <div class="service-page-reviews-tag">
+                <img src="assets/img/bens-4.svg" alt="bens">
+                Удобная локация
+              </div>
+              <div class="service-page-reviews-tag">
+                <img src="assets/img/bens-4.svg" alt="bens">
+                Вид на город
+              </div>
+              <div class="service-page-reviews-tag">
+                <img src="assets/img/acc-6.svg" alt="bens">
+                Вкусно
+              </div>
+            </div>
+
+            <div class="reviews-grid-unique">
+              <div class="review-card-unique">
+                <div class="review-user-unique">
+                  <img src="assets/img/user.svg" alt="Екатерина" class="review-avatar-unique">
+                  <div>
+                    <p class="review-name-unique">Екатерина С.</p>
+                    <div class="review-date-unique">
+                      <div class="review-date-unique-stars">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                      </div>
+                      Сентябрь 2024
+                    </div>
+                  </div>
+                </div>
+                <p class="review-text-unique">
+                  Вчера мы провели романтическое свидание на крыше в центре Москвы. Обстановка была просто сказочной:
+                  музыка, огни и уют сделали этот момент поистине незабываемым. Это идеальное место для предложений!
+                </p>
+              </div>
+
+              <div class="review-card-unique">
+                <div class="review-user-unique">
+                  <img src="assets/img/user.svg" alt="Екатерина" class="review-avatar-unique">
+                  <div>
+                    <p class="review-name-unique">Екатерина С.</p>
+                    <div class="review-date-unique">
+                      <div class="review-date-unique-stars">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                      </div>
+                      Сентябрь 2024
+                    </div>
+                  </div>
+                </div>
+                <p class="review-text-unique">
+                  Вчера мы провели романтическое свидание на крыше в центре Москвы. Обстановка была просто сказочной:
+                  музыка, огни и уют сделали этот момент поистине незабываемым. Это идеальное место для предложений!
+                </p>
+              </div>
+
+              <div class="review-card-unique">
+                <div class="review-user-unique">
+                  <img src="assets/img/user.svg" alt="Екатерина" class="review-avatar-unique">
+                  <div>
+                    <p class="review-name-unique">Екатерина С.</p>
+                    <div class="review-date-unique">
+                      <div class="review-date-unique-stars">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                      </div>
+                      Сентябрь 2024
+                    </div>
+                  </div>
+                </div>
+                <p class="review-text-unique">
+                  Вчера мы провели романтическое свидание на крыше в центре Москвы. Обстановка была просто сказочной:
+                  музыка, огни и уют сделали этот момент поистине незабываемым. Это идеальное место для предложений!
+                </p>
+              </div>
+
+              <div class="review-card-unique">
+                <div class="review-user-unique">
+                  <img src="assets/img/user.svg" alt="Екатерина" class="review-avatar-unique">
+                  <div>
+                    <p class="review-name-unique">Екатерина С.</p>
+                    <div class="review-date-unique">
+                      <div class="review-date-unique-stars">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                        <img src="assets/img/rate-star.svg" alt="star">
+                      </div>
+                      Сентябрь 2024
+                    </div>
+                  </div>
+                </div>
+                <p class="review-text-unique">
+                  Недавно мы с друзьями отметили день рождения на крыше в центре Москвы. Это было потрясающе!
+                  Персонал был очень дружелюбным, а десерты просто таяли во рту. Живой концерт добавил невероятную атмосферу!
+                </p>
+              </div>
+            </div>
+
+            <div class="reviews-buttons-unique">
+              <button class="review-btn-unique">
+                <img src="assets/img/revs-1.svg" alt="revs">
+                Все отзывы
+                <img src="assets/img/gotolink.svg" class="review-btn-unique-gotolink" alt="gotolink">
+                <a href="#"></a>
+              </button>
+              <button class="review-btn-unique">
+                <img src="assets/img/revs-2.svg" alt="revs">
+                Яндекс Карты
+                <img src="assets/img/gotolink.svg" class="review-btn-unique-gotolink" alt="gotolink">
+                <a href="#"></a>
+              </button>
+              <button class="review-btn-unique">
+                <img src="assets/img/revs-3.svg" alt="revs">
+                Вконтакте
+                <img src="assets/img/gotolink.svg" class="review-btn-unique-gotolink" alt="gotolink">
+                <a href="#"></a>
+              </button>
+              <button class="review-btn-unique">
+                <img src="assets/img/revs-4.svg" alt="revs">
+                Instagram
+                <img src="assets/img/gotolink.svg" class="review-btn-unique-gotolink" alt="gotolink">
+                <a href="#"></a>
+              </button>
+            </div>
+
+          </div>
+
+          <div class="service-page-faq">
+            <div class="service-page-faq__title">Частые вопросы</div>
+
+            <div class="service-page-faq__item">
+              <div class="service-page-faq__header">
+                Можно ли что-то принести с собой?
+                <div class="service-page-faq__icon">
+                  <img src="assets/img/acc-arrow.svg" alt="chevron">
+                </div>
+              </div>
+              <div class="service-page-faq__body">
+                <div class="service-page-faq__content">
+                  Добрый день! Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу. Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу
+                </div>
+              </div>
+            </div>
+
+            <div class="service-page-faq__item">
+              <div class="service-page-faq__header">
+                Что вы можете предложить в качестве напитка?
+                <div class="service-page-faq__icon">
+                  <img src="assets/img/acc-arrow.svg" alt="chevron">
+                </div>
+              </div>
+              <div class="service-page-faq__body">
+                <div class="service-page-faq__content">
+                  Добрый день! Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу. Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу
+                </div>
+              </div>
+            </div>
+
+            <div class="service-page-faq__item">
+              <div class="service-page-faq__header">
+                Есть ли какие-то ограничения на количество людей?
+                <div class="service-page-faq__icon">
+                  <img src="assets/img/acc-arrow.svg" alt="chevron">
+                </div>
+              </div>
+              <div class="service-page-faq__body">
+                <div class="service-page-faq__content">
+                  Добрый день! Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу. Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу
+                </div>
+              </div>
+            </div>
+
+            <div class="service-page-faq__item">
+              <div class="service-page-faq__header">
+                Каковы правила безопасности на мероприятии?
+                <div class="service-page-faq__icon">
+                  <img src="assets/img/acc-arrow.svg" alt="chevron">
+                </div>
+              </div>
+              <div class="service-page-faq__body">
+                <div class="service-page-faq__content">
+                  Добрый день! Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу. Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу
+                </div>
+              </div>
+            </div>
+
+            <div class="service-page-faq__item">
+              <div class="service-page-faq__header">
+                Что делать в случае чрезвычайной ситуации?
+                <div class="service-page-faq__icon">
+                  <img src="assets/img/acc-arrow.svg" alt="chevron">
+                </div>
+              </div>
+              <div class="service-page-faq__body">
+                <div class="service-page-faq__content">
+                  Добрый день! Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу. Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень романтичная, музыка, огни, все отлично вписывалось в данную атмосферу
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="service-page-right-content">
+          <div class="service-page-right-wrap">
+            <div class="service-page-right-box">
+                <div class="service-page-right-box__header">
+                    <img src="assets/img/card-1.jpg" alt="" class="service-page-right-box__image">
+                    <div class="service-page-right-box__info">
+                    <h3 class="service-page-right-box__title">Романтическое свидание на крыше в центре Москвы</h3>
+                    <p class="service-page-right-box__subtitle">Положите целый город к ногам своей второй половинки</p>
+                    </div>
+                </div>
+
+                <div class="service-page-right-box__package custom-select-wrapper">
+                  <div class="custom-select-header">
+                    <div class="custom-select-info">
+                      <span>Пакет</span>
+                      <div class="custom-value-right-box">Карлсон – 59 900₽</div>
+                    </div>
+                    <img src="assets/img/custom-select.svg" alt="select" class="custom-select-icon">
+                  </div>
+
+                  <ul class="custom-select-list">
+                    <li data-value="karlson" class="active">Карлсон – 59 900₽</li>
+                    <li data-value="petya">Карлсон – 45 000₽</li>
+                    <li data-value="ilya">Карлсон – 35 500₽</li>
+                  </ul>
+
+                  <!-- скрытый нативный select (для формы) -->
+                  <select name="package" id="realSelect" hidden>
+                    <option value="karlson" selected>Карлсон – 59 900₽</option>
+                    <option value="petya">Карлсон – 45 000₽</option>
+                    <option value="ilya">Карлсон – 35 500₽</option>
+                  </select>
+                </div>
+
+                <div class="service-page-right-box__services accordion-box">
+                    <div class="service-page-right-box__services-title rbox-accordion-title open">
+                      <p>Доп. услуги 4 шт. <img class="service-page-right-box-opener" src="assets/img/arrow-more-ben.svg" alt="arrow"></p> 
+                      <span>17 900 ₽</span>
+                    </div>
+                    <ul class="service-page-right-box__services-list accordion-content" style="max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1);">
+                      <li>
+                        <p>Саксофон с 22:00 до 04:00</p>
+                        <span>9 900 ₽</span>
+                      </li>
+                      <li>
+                        <p>Фруктовая тарелка</p>
+                        <span>4 500 ₽</span>
+                      </li>
+                      <li>
+                        <p>Шампанское MOËT (1 бут.)</p>
+                        <span>15 000 ₽</span>
+                      </li>
+                      <li>
+                        <p>Кальян</p>
+                        <span>5 000 ₽</span>
+                      </li>
+                    </ul>
+                </div>
+
+                <div class="service-page-right-box__benefits accordion-box">
+                    <div class="service-page-right-box__benefits-title rbox-accordion-title open">
+                      <p>Выгода <img class="service-page-right-box-opener" src="assets/img/arrow-more-ben.svg" alt="arrow"></p> 
+                      <span>-21 900 ₽</span>
+                    </div>
+                    <ul class="service-page-right-box__benefits-list accordion-content" style="max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1);">
+                      <li>
+                        <p>Скидка в День рождения 10%</p>
+                        <span>-9 900 ₽</span>
+                      </li>
+                      <li>
+                        <p>Персональная скидка</p>
+                        <span>-11 500 ₽</span>
+                      </li>
+                    </ul>
+                </div>
+
+                <div class="service-page-right-box__total">
+                    <span>Итого</span>
+                    <strong>59 900 ₽</strong>
+                </div>
+
+                <button class="service-page-right-box__button">
+                  К бронированию
+                  <img src="assets/img/arrow-right-btn-right-box.svg" alt="arrow">
+                </button>
+
+                <div class="service-page-right-box__installments">
+                    <span>Доступна рассрочка</span>
+                    <div class="service-page-right-box__installments-icons">
+                    <img src="assets/img/split.svg" alt="">
+                    <img src="assets/img/dolyami.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="service-page-tip-box">
+              <div class="tip-box">
+                <div class="tip-icon">
+                  <img src="assets/img/tip-heart.svg" alt="heart icon" />
+                </div>
+                <div class="tip-content">
+                  <div class="tip-title">
+                    Намекнуть любимому = скидка 10%
+                  </div>
+                  <div class="tip-text">
+                    Отправим информацию об этой услуге на указанный контакт.  
+                    И добавим скидку на бронирование.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+    <section class="category-section container no-border-radius">
+      <div class="category-head">
+        <div class="category-title-group">
+            <a href="#" class="category-name-same">Похожие услуги</a>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="cards-grid-inner">
+
+          <article class="card">
+              <div class="card-media">
+                  <div class="swiper card-swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
+                      <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
+                      <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
+                      <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev">
+                      <img src="assets/img/chevron-left.svg" alt="chevron">
+                    </div>
+                    <div class="swiper-button-next">
+                      <img src="assets/img/chevron-right.svg" alt="chevron">
+                    </div>
+                  </div>
+                  <button class="fav">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                      <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div class="card-body">
+                <a href="#" class="card-title">Романтический вечер в гостинице</a>
+                <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
+                <div class="card-meta">
+                  <span class="price">от 20 000₽</span>
+                </div>
+              </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+                <div class="swiper card-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev">
+                    <img src="assets/img/chevron-left.svg" alt="chevron">
+                  </div>
+                  <div class="swiper-button-next">
+                    <img src="assets/img/chevron-right.svg" alt="chevron">
+                  </div>
+                </div>
+                <button class="fav">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                    <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+                  </svg>
+                </button>
+            </div>
+            <div class="card-body">
+              <a class="card-title" href="#">Романтический вечер в гостинице</a>
+              <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
+              <div class="card-meta">
+                <span class="price">от 20 000₽</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+                <div class="swiper card-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev">
+                    <img src="assets/img/chevron-left.svg" alt="chevron">
+                  </div>
+                  <div class="swiper-button-next">
+                    <img src="assets/img/chevron-right.svg" alt="chevron">
+                  </div>
+                </div>
+                <button class="fav">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                    <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+                  </svg>
+                </button>
+            </div>
+            <div class="card-body">
+              <a class="card-title" href="#">Романтический вечер в гостинице</a>
+              <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
+              <div class="card-meta">
+                <span class="price">от 20 000₽</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+                <div class="swiper card-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/card-4.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/card-3.jpg" alt=""></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev">
+                    <img src="assets/img/chevron-left.svg" alt="chevron">
+                  </div>
+                  <div class="swiper-button-next">
+                    <img src="assets/img/chevron-right.svg" alt="chevron">
+                  </div>
+                </div>
+                <button class="fav">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                    <path fill="#fff" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+                  </svg>
+                </button>
+            </div>
+            <div class="card-body">
+              <a class="card-title" href="#">Романтический вечер в гостинице</a>
+              <p class="card-excerpt">Положите целый город к ногам своей второй половинки</p>
+              <div class="card-meta">
+                <span class="price">от 20 000₽</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col footer__logo">
+          <img src="assets/img/Logo.svg" class="logo" alt="Logo">
+        </div>
+        <div class="footer-col footer__company">
+          <p class="footer-col-title">Компания</p>
+          <ul>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">Блог</a></li>
+            <li><a href="#">Cертификат</a></li>
+            <li><a href="#">Франшиза</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer__services">
+          <p class="footer-col-title">Популярные услуги</p>
+          <ul>
+            <li><a href="#">Свидание в Москва-сити</a></li>
+            <li><a href="#">Свидание в Останкино</a></li>
+            <li><a href="#">Предложение руки и сердца</a></li>
+            <li><a href="#">Флешмоб</a></li>
+            <li><a href="#">Девичник</a></li>
+            <li><a href="#">Мальчишник</a></li>
+            <li><a href="#">Выписка с роддома</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer__social">
+          <p class="footer-col-title">Социальные сети</p>
+          <ul>
+            <li><a href="#"><img src="assets/img/vk.svg" alt="vk">Вконтакте</a></li>
+            <li><a href="#"><img src="assets/img/tg.svg" alt="tg">Telegram</a></li>
+            <li><a href="#"><img src="assets/img/youtube.svg" alt="youtube">Youtube</a></li>
+            <li><a href="#"><img src="assets/img/ig.svg" alt="ig">Insta</a></li>
+            <li><a href="#"><img src="assets/img/max.svg" alt="max">Max</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <div class="footer-copy-text">
+          <p>
+            © 2025 Мастерская Эмоций <br>
+            ОГРН: 321774600652941 <br>
+            ИНН: 213001929258
+          </p>
+        </div>
+        <div class="footer-copy-links">
+          <a href="#">Авторские права</a>
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Правила оказания услуг</a>
+          <a href="#">Договор оферты</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Swiper JS -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
