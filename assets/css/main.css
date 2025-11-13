@@ -2084,6 +2084,9 @@ input[type="search"]::-webkit-search-results-decoration {
 .swx-acc-item {
   border-top: 1px solid #eee;
 }
+.swx-acc-item:first-child {
+  border-top: none;
+}
 .swx-acc-header {
   width: 100%;
   background: none;
