@@ -135,6 +135,22 @@
 
 
   <main>
+
+    <!-- Service page mob menu -->
+    <div class="service-page-mob-menu">
+      <div class="service-page-mob-menu-wrapper">
+        <div class="service-page-mob-menu-back">
+          <img src="assets/img/chevron-left.svg" alt="chevron">
+        </div>
+        <div class="service-page-mob-menu-title">
+          <p>Романтическое свидание на крыше в центре Москвы</p>
+        </div>
+        <div class="service-page-mob-menu-fav">
+          <img src="assets/img/fav-icon.svg" alt="icon">
+        </div>
+      </div>
+    </div>
+
     <!-- Breadcrumbs -->
     <nav class="page-breadcrumbs container" aria-label="Хлебные крошки">
       <ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -173,6 +189,42 @@
       </ol>
     </nav>
 
+    <style>
+      @media (max-width: 768px) {
+        .site-header {
+          display: none;
+        }
+        .search-nav {
+          display: none;
+        }
+        .page-breadcrumbs {
+          display: none;
+        }
+        body {
+          padding-top: 0;
+        }
+      }
+    </style>
+    <!-- Service page bar -->
+    <div class="service-page-bar">
+      <div class="service-page-bar-wrapper">
+        <div class="service-page-bar-opener">
+          <img src="assets/img/opener-arrow-up.svg" alt="arrow">
+        </div>
+        <div class="service-page-bar-info">
+          <div class="service-page-bar-info-item">
+            <p>Пакет</p>
+            <span>59 900 ₽</span>
+          </div>
+          <div class="service-page-bar-info-item">
+            <p>Доп. услуги</p>
+            <span>17 900 ₽</span>
+          </div>
+        </div>
+        <button class="service-page-bar-btn"><span>59 900 ₽</span><img src="assets/img/arrow-right-btn-right-box.svg" alt="arrow"></button>
+      </div>
+    </div>
+
     <section class="service-page-gallery container">
         <div class="service-page-gallery-wrap">
             <div class="service-page-gallery-item service-page-gallery-item-video">
@@ -198,7 +250,7 @@
                     <img src="assets/img/card-2.jpg" alt="card">
                     <div class="service-page-gallery-item-opener">
                         <img src="assets/img/pic-icon.svg" alt="pic-icon">
-                        <span>Все фото и видео</span>
+                        <div>Все <span>фото и видео</span></div>
                     </div>
                 </div>
             </div>
@@ -216,25 +268,27 @@
               </h1>
               <div class="service-header__meta">
                 <div class="service-header__rating">
-                  <span class="service-header__rating-value">4.88</span>
-                  <span class="service-header__stars">
-                    <img src="assets/img/rate-star.svg" alt="star">
-                    <img src="assets/img/rate-star.svg" alt="star">
-                    <img src="assets/img/rate-star.svg" alt="star">
-                    <img src="assets/img/rate-star.svg" alt="star">
-                    <img src="assets/img/rate-star.svg" alt="star">
-                  </span>
+                  <div class="service-header__rating-wrapp">
+                    <span class="service-header__rating-value">4.88</span>
+                    <span class="service-header__stars">
+                      <img src="assets/img/rate-star.svg" alt="star">
+                      <img src="assets/img/rate-star.svg" alt="star">
+                      <img src="assets/img/rate-star.svg" alt="star">
+                      <img src="assets/img/rate-star.svg" alt="star">
+                      <img src="assets/img/rate-star.svg" alt="star">
+                    </span>
+                  </div>
                   <div class="service-header__reviews">24 <a href="#">Отзывы</a></div>
-                </div>
-                <div class="service-header__actions">
-                  <button class="service-header__btn">
-                    <img src="assets/img/share-serv.svg" alt="share">
-                    <span>Поделиться</span>
-                  </button>
-                  <button class="service-header__btn service-header__btn--save">
-                    <img src="assets/img/save-heart.svg" alt="heart">
-                    <span>Сохранить</span>
-                  </button>
+                  <div class="service-header__actions">
+                    <button class="service-header__btn service-header__btn--share">
+                      <img src="assets/img/share-serv.svg" alt="share">
+                      <span>Поделиться</span>
+                    </button>
+                    <button class="service-header__btn service-header__btn--save">
+                      <img src="assets/img/save-heart.svg" alt="heart">
+                      <span>Сохранить</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -427,121 +481,159 @@
             <h2 class="swx-title">Пакеты цен и услуг</h2>
             <p class="swx-subtitle">На каждый пакет доступны рассрочки</p>
 
-            <div class="swx-package-list">
-              <div class="swx-package">
-                <div class="swx-package-image">
-                  <img src="assets/img/card-1.jpg" class="swx-img" alt="swx">
-                  <div class="swx-package-image-play">
-                    <img src="assets/img/play-sm.svg" alt="play">
+            <div class="swiper swx-package-slider">
+              <div class="swiper-wrapper swx-package-list">
+                <div class="swx-package">
+                  <div class="swx-package-image">
+                    <img src="assets/img/card-1.jpg" class="swx-img" alt="swx">
+                    <div class="swx-package-image-play">
+                      <img src="assets/img/play-sm.svg" alt="play">
+                    </div>
+                  </div>
+                  <div class="swx-info">
+                    <h3 class="swx-name">Карлсон</h3>
+                    <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
+                    <div class="swx-package-image-mob">
+                      <img src="assets/img/card-1.jpg" class="swx-img" alt="swx">
+                      <div class="swx-package-image-play">
+                        <img src="assets/img/play-sm.svg" alt="play">
+                      </div>
+                    </div>
+                    <div class="swx-price">
+                      <span class="swx-current">59 900 ₽</span>
+                      <span class="swx-old">71 400 ₽</span>
+                      <span class="swx-sale">−11 500 ₽</span>
+                    </div>
+                    <div class="swx-actions">
+                      <button class="swx-btn swx-choose swx-choose-active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path fill="#fff" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm0-2.19a8.899 8.899 0 0 0 8.916-8.906A8.908 8.908 0 0 0 12 3.328a8.908 8.908 0 0 0-8.916 8.916A8.899 8.899 0 0 0 12 21.15Zm-1.16-3.803c-.398 0-.71-.162-1-.537l-2.534-3.094c-.183-.226-.28-.462-.28-.72 0-.537.42-.956.946-.956.311 0 .569.118.827.451l1.998 2.546 4.243-6.81c.226-.366.516-.538.838-.538.505 0 .977.355.977.881 0 .247-.128.505-.268.73l-4.802 7.51c-.225.343-.558.537-.945.537Z"/>
+                        </svg>
+                        <span>Выбрано</span>
+                      </button>
+                      <button class="swx-btn swx-more">
+                        <span>Подробнее</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div class="swx-info">
-                  <h3 class="swx-name">Карлсон</h3>
-                  <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
-                  <div class="swx-price">
-                    <span class="swx-current">59 900 ₽</span>
-                    <span class="swx-old">71 400 ₽</span>
-                    <span class="swx-sale">−11 500 ₽</span>
-                  </div>
-                  <div class="swx-actions">
-                    <button class="swx-btn swx-choose swx-choose-active">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path fill="#fff" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm0-2.19a8.899 8.899 0 0 0 8.916-8.906A8.908 8.908 0 0 0 12 3.328a8.908 8.908 0 0 0-8.916 8.916A8.899 8.899 0 0 0 12 21.15Zm-1.16-3.803c-.398 0-.71-.162-1-.537l-2.534-3.094c-.183-.226-.28-.462-.28-.72 0-.537.42-.956.946-.956.311 0 .569.118.827.451l1.998 2.546 4.243-6.81c.226-.366.516-.538.838-.538.505 0 .977.355.977.881 0 .247-.128.505-.268.73l-4.802 7.51c-.225.343-.558.537-.945.537Z"/>
-                      </svg>
-                      <span>Выбрано</span>
-                    </button>
-                    <button class="swx-btn swx-more">
-                      <span>Подробнее</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
 
-              <div class="swx-package">
-                <div class="swx-package-image">
-                  <img src="assets/img/card-2.jpg" class="swx-img" alt="swx">
-                  <div class="swx-package-image-play">
-                    <img src="assets/img/play-sm.svg" alt="play">
+                <div class="swx-package">
+                  <div class="swx-package-image">
+                    <img src="assets/img/card-2.jpg" class="swx-img" alt="swx">
+                    <div class="swx-package-image-play">
+                      <img src="assets/img/play-sm.svg" alt="play">
+                    </div>
+                  </div>
+                  <div class="swx-info">
+                    <h3 class="swx-name">Особенный день</h3>
+                    <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
+                    <div class="swx-package-image-mob">
+                      <img src="assets/img/card-2.jpg" class="swx-img" alt="swx">
+                      <div class="swx-package-image-play">
+                        <img src="assets/img/play-sm.svg" alt="play">
+                      </div>
+                    </div>
+                    <div class="swx-price">
+                      <span class="swx-current">93 900 ₽</span>
+                      <span class="swx-old">115 230 ₽</span>
+                      <span class="swx-sale">−21 330 ₽</span>
+                    </div>
+                    <div class="swx-actions">
+                      <button class="swx-btn swx-choose">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
+                        </svg>
+                        <span>Выбрать</span>
+                      </button>
+                      <button class="swx-btn swx-more">
+                        <span>Подробнее</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div class="swx-info">
-                  <h3 class="swx-name">Особенный день</h3>
-                  <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
-                  <div class="swx-price">
-                    <span class="swx-current">93 900 ₽</span>
-                    <span class="swx-old">115 230 ₽</span>
-                    <span class="swx-sale">−21 330 ₽</span>
-                  </div>
-                  <div class="swx-actions">
-                    <button class="swx-btn swx-choose">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
-                      </svg>
-                      <span>Выбрать</span>
-                    </button>
-                    <button class="swx-btn swx-more">
-                      <span>Подробнее</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
 
-              <div class="swx-package">
-                <div class="swx-package-image">
-                  <img src="assets/img/card-3.jpg" class="swx-img" alt="swx">
-                  <div class="swx-package-image-play">
-                    <img src="assets/img/play-sm.svg" alt="play">
+                <div class="swx-package">
+                  <div class="swx-package-image">
+                    <img src="assets/img/card-3.jpg" class="swx-img" alt="swx">
+                    <div class="swx-package-image-play">
+                      <img src="assets/img/play-sm.svg" alt="play">
+                    </div>
+                  </div>
+                  <div class="swx-info">
+                    <h3 class="swx-name">Идеальное свидание</h3>
+                    <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
+                    <div class="swx-package-image-mob">
+                      <img src="assets/img/card-3.jpg" class="swx-img" alt="swx">
+                      <div class="swx-package-image-play">
+                        <img src="assets/img/play-sm.svg" alt="play">
+                      </div>
+                    </div>
+                    <div class="swx-price">
+                      <span class="swx-current">129 900 ₽</span>
+                      <span class="swx-old">161 330 ₽</span>
+                      <span class="swx-sale">−31 430 ₽</span>
+                    </div>
+                    <div class="swx-actions">
+                      <button class="swx-btn swx-choose">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
+                        </svg>
+                        <span>Выбрать</span>
+                      </button>
+                      <button class="swx-btn swx-more">
+                        <span>Подробнее</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div class="swx-info">
-                  <h3 class="swx-name">Идеальное свидание</h3>
-                  <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
-                  <div class="swx-price">
-                    <span class="swx-current">129 900 ₽</span>
-                    <span class="swx-old">161 330 ₽</span>
-                    <span class="swx-sale">−31 430 ₽</span>
-                  </div>
-                  <div class="swx-actions">
-                    <button class="swx-btn swx-choose">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
-                      </svg>
-                      <span>Выбрать</span>
-                    </button>
-                    <button class="swx-btn swx-more">
-                      <span>Подробнее</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
 
-              <div class="swx-package">
-                <div class="swx-package-image">
-                  <img src="assets/img/card-4.jpg" class="swx-img" alt="swx">
-                  <div class="swx-package-image-play">
-                    <img src="assets/img/play-sm.svg" alt="play">
+                <div class="swx-package">
+                  <div class="swx-package-image">
+                    <img src="assets/img/card-4.jpg" class="swx-img" alt="swx">
+                    <div class="swx-package-image-play">
+                      <img src="assets/img/play-sm.svg" alt="play">
+                    </div>
                   </div>
-                </div>
-                <div class="swx-info">
-                  <h3 class="swx-name">На все 360°</h3>
-                  <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
-                  <div class="swx-price">
-                    <span class="swx-current">360 000 ₽</span>
-                  </div>
-                  <div class="swx-actions">
-                    <button class="swx-btn swx-choose">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
-                      </svg>
-                      <span>Выбрать</span>
-                    </button>
-                    <button class="swx-btn swx-more">
-                      <span>Подробнее</span>
-                    </button>
+                  <div class="swx-info">
+                    <h3 class="swx-name">На все 360°</h3>
+                    <p class="swx-desc">Вчера посетили данное место, в котором было организовано романтическое свидание с предложением. Обстановка очень ро...</p>
+                    <div class="swx-package-image-mob">
+                      <img src="assets/img/card-4.jpg" class="swx-img" alt="swx">
+                      <div class="swx-package-image-play">
+                        <img src="assets/img/play-sm.svg" alt="play">
+                      </div>
+                    </div>
+                    <div class="swx-price">
+                      <span class="swx-current">360 000 ₽</span>
+                    </div>
+                    <div class="swx-actions">
+                      <button class="swx-btn swx-choose">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path fill="#222" d="M12 23.34C5.877 23.34.903 18.368.903 12.245S5.877 1.147 12 1.147c6.123 0 11.097 4.974 11.097 11.097 0 6.123-4.974 11.097-11.097 11.097Zm-.01-5.94c.622 0 1.063-.44 1.063-1.052v-3.062h3.061c.613 0 1.053-.43 1.053-1.042 0-.623-.44-1.063-1.053-1.063h-3.061V8.13c0-.623-.44-1.064-1.064-1.064-.612 0-1.042.44-1.042 1.064v3.05h-3.05c-.624 0-1.064.441-1.064 1.064 0 .612.451 1.042 1.063 1.042h3.051v3.062c0 .601.43 1.052 1.042 1.052Z"/>
+                        </svg>
+                        <span>Выбрать</span>
+                      </button>
+                      <button class="swx-btn swx-more">
+                        <span>Подробнее</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div class="swx-unique-slider-controls">
+              <button class="swx-unique-slider-btn swx-unique-slider-btn-prev">
+                <img src="assets/img/chevron-left.svg" alt="left">
+              </button>
+              <div class="swx-unique-pagination"></div>
+              <button class="swx-unique-slider-btn swx-unique-slider-btn-next">
+                <img src="assets/img/chevron-right.svg" alt="right">
+              </button>
+            </div>
+
+            
 
             <h3 class="swx-extra-title">Дополнительные услуги</h3>
             <p class="swx-note">Добавьте то, что вам нужно. Сделайте ваше свидание ещё приятнее.</p>
@@ -1035,6 +1127,9 @@
         <div class="service-page-right-content">
           <div class="service-page-right-wrap">
             <div class="service-page-right-box">
+                <div class="service-page-right-content-closer">
+                  <img src="assets/img/service-page-right-content-closer.svg" alt="close">
+                </div>
                 <div class="service-page-right-box__header">
                     <img src="assets/img/card-1.jpg" alt="" class="service-page-right-box__image">
                     <div class="service-page-right-box__info">

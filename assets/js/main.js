@@ -424,3 +424,101 @@ document.querySelectorAll('.rbox-accordion-title').forEach(title => {
     }
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const bar = document.querySelector('.service-page-bar');
+  const opener = document.querySelector('.service-page-bar-opener');
+  const rightContent = document.querySelector('.service-page-right-content');
+  const closer = document.querySelector('.service-page-right-content-closer');
+  const blur = document.querySelector('.page-blur');
+
+  // --- ЛОГИКА ШИРИНЫ ДЛЯ BAR ---
+  if (bar) {
+    function checkWidth() {
+      if (window.innerWidth < 992) {
+        bar.classList.add('active');
+      } else {
+        bar.classList.remove('active');
+        if (rightContent) rightContent.classList.remove('active');
+        if (blur) blur.classList.remove('active');
+      }
+    }
+
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+  }
+
+  // --- ОТКРЫТИЕ ПРАВОГО БЛОКА ---
+  if (opener && rightContent && bar && blur) {
+    opener.addEventListener('click', () => {
+      rightContent.classList.add('active');
+      bar.classList.remove('active');
+      blur.classList.add('active');
+    });
+  }
+
+  // --- ЗАКРЫТИЕ ПРАВОГО БЛОКА ---
+  if (closer && rightContent && bar && blur) {
+    closer.addEventListener('click', () => {
+      rightContent.classList.remove('active');
+      bar.classList.add('active');
+      blur.classList.remove('active');
+    });
+  }
+
+  // --- КЛИК ПО БЛЮРУ ---
+  if (blur && rightContent && bar) {
+    blur.addEventListener('click', () => {
+      rightContent.classList.remove('active');
+      bar.classList.add('active');
+      blur.classList.remove('active');
+    });
+  }
+});
+
+
+
+let swxSwiper = null;
+
+function initSwxSlider() {
+  const wrapper = document.querySelector('.swx-package-list');
+  if (!wrapper) return;
+
+  const slides = [...wrapper.children];
+  if (!slides.length) return;
+
+  if (window.innerWidth < 768 && !swxSwiper) {
+    slides.forEach(slide => {
+      // гарантируем порядок: swiper-slide swx-package
+      slide.className = `swiper-slide swx-package`;
+    });
+
+    swxSwiper = new Swiper('.swx-package-slider', {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      loop: 1,
+      navigation: {
+        nextEl: '.swx-unique-slider-btn-next',
+        prevEl: '.swx-unique-slider-btn-prev',
+      },
+      pagination: {
+        el: '.swx-unique-pagination',
+        clickable: true,
+      },
+    });
+  }
+
+  if (window.innerWidth >= 768 && swxSwiper) {
+    swxSwiper.destroy(true, true);
+    swxSwiper = null;
+
+    slides.forEach(slide => {
+      // удаляем swiper-slide, оставляем только swx-package
+      slide.className = `swx-package`;
+    });
+  }
+}
+
+initSwxSlider();
+window.addEventListener('resize', initSwxSlider);
