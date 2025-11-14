@@ -132,9 +132,53 @@
     </div>
   </div>
 
-
-
   <main>
+
+    <!-- Modals -->
+    <!-- Modal page blur -->
+    <div class="modal-page-blur"></div>
+    <!--Share modal-->
+    <div class="service-page-modal service-page-modal-share service-modal">
+      <div class="service-page-modal-container">
+        <div class="service-page-modal-close">
+          <img src="assets/img/service-page-right-content-closer.svg" alt="close">
+        </div>
+        <div class="service-page-modal-title">Поделиться</div>
+        <div class="included-item service-page-modal-share-inc">
+          <img src="assets/img/card-1.jpg" alt="incl" class="included-item__img" />
+          <div>
+            <h4 class="included-item__title">Романтическое свидание на крыше в центре Москвы</h4>
+            <p class="included-item__desc">Положите целый город к ногам своей второй половинки</p>
+          </div>
+        </div>
+        <div class="service-page-share-modal-btns-list">
+          <button class="service-page-share-modal-btn">
+            <img src="assets/img/service-mod-copy.svg" alt="share-mod-icon">
+            <span>Скопировать ссылку</span>
+          </button>
+          <button class="service-page-share-modal-btn">
+            <img src="assets/img/modal-mail.svg" alt="share-mod-icon">
+            <span>Отправить на Email</span>
+          </button>
+          <button class="service-page-share-modal-btn">
+            <img src="assets/img/vk.svg" alt="share-mod-icon">
+            <span>Вконтакте</span>
+          </button>
+          <button class="service-page-share-modal-btn">
+            <img src="assets/img/tg.svg" alt="share-mod-icon">
+            <span>Telegram</span>
+          </button>
+          <button class="service-page-share-modal-btn">
+            <img src="assets/img/whatsapp.svg" alt="share-mod-icon">
+            <span>WhatsApp</span>
+          </button>
+          <button class="service-page-share-modal-btn">
+            <img src="assets/img/max.svg" alt="share-mod-icon">
+            <span>MAX</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Service page mob menu -->
     <div class="service-page-mob-menu">
@@ -189,6 +233,7 @@
       </ol>
     </nav>
 
+    <!-- Styles only on this page -->
     <style>
       @media (max-width: 768px) {
         .site-header {
@@ -205,6 +250,7 @@
         }
       }
     </style>
+
     <!-- Service page bar -->
     <div class="service-page-bar">
       <div class="service-page-bar-wrapper">
@@ -225,6 +271,7 @@
       </div>
     </div>
 
+    <!-- Service page gallery -->
     <section class="service-page-gallery container">
         <div class="service-page-gallery-wrap">
             <div class="service-page-gallery-item service-page-gallery-item-video">
@@ -257,6 +304,7 @@
         </div>
     </section>
 
+    <!-- Service page content -->
     <section class="service-page-wrapper container">
         <div class="service-page-content">
 
@@ -280,7 +328,7 @@
                   </div>
                   <div class="service-header__reviews">24 <a href="#">Отзывы</a></div>
                   <div class="service-header__actions">
-                    <button class="service-header__btn service-header__btn--share">
+                    <button class="service-header__btn service-header__btn--share" data-modal-target="service-page-modal-share">
                       <img src="assets/img/share-serv.svg" alt="share">
                       <span>Поделиться</span>
                     </button>
@@ -1241,7 +1289,7 @@
         </div>
     </section>
 
-
+    <!-- Service page categorys -->
     <section class="category-section container no-border-radius">
       <div class="category-head">
         <div class="category-title-group">

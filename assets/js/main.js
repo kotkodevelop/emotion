@@ -427,55 +427,58 @@ document.querySelectorAll('.rbox-accordion-title').forEach(title => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const bar = document.querySelector('.service-page-bar');
-  const opener = document.querySelector('.service-page-bar-opener');
-  const rightContent = document.querySelector('.service-page-right-content');
-  const closer = document.querySelector('.service-page-right-content-closer');
-  const blur = document.querySelector('.page-blur');
+    const bar = document.querySelector('.service-page-bar');
+    const opener = document.querySelector('.service-page-bar-opener');
+    const rightContent = document.querySelector('.service-page-right-content');
+    const closer = document.querySelector('.service-page-right-content-closer');
+    const blur = document.querySelector('.page-blur');
 
-  // --- ЛОГИКА ШИРИНЫ ДЛЯ BAR ---
-  if (bar) {
-    function checkWidth() {
-      if (window.innerWidth < 992) {
-        bar.classList.add('active');
-      } else {
-        bar.classList.remove('active');
-        if (rightContent) rightContent.classList.remove('active');
-        if (blur) blur.classList.remove('active');
-      }
+    // --- ЛОГИКА ШИРИНЫ ДЛЯ BAR ---
+    if (bar) {
+        function checkWidth() {
+            if (window.innerWidth < 992) {
+                bar.classList.add('active');
+            } else {
+                bar.classList.remove('active');
+                if (rightContent) rightContent.classList.remove('active');
+                if (blur) blur.classList.remove('active');
+            }
+        }
+        checkWidth();
+        window.addEventListener('resize', checkWidth);
     }
 
-    checkWidth();
-    window.addEventListener('resize', checkWidth);
-  }
+    // --- ОТКРЫТИЕ ---
+    if (opener && rightContent && bar && blur) {
+        opener.addEventListener('click', () => {
+            rightContent.classList.add('active');
+            bar.classList.remove('active');
+            blur.classList.add('active');
+        });
+    }
 
-  // --- ОТКРЫТИЕ ПРАВОГО БЛОКА ---
-  if (opener && rightContent && bar && blur) {
-    opener.addEventListener('click', () => {
-      rightContent.classList.add('active');
-      bar.classList.remove('active');
-      blur.classList.add('active');
-    });
-  }
+    // --- ЗАКРЫТИЕ ---
+    if (closer && rightContent && bar && blur) {
+        closer.addEventListener('click', () => {
+            rightContent.classList.remove('active');
+            bar.classList.add('active');
+            blur.classList.remove('active');
+        });
+    }
 
-  // --- ЗАКРЫТИЕ ПРАВОГО БЛОКА ---
-  if (closer && rightContent && bar && blur) {
-    closer.addEventListener('click', () => {
-      rightContent.classList.remove('active');
-      bar.classList.add('active');
-      blur.classList.remove('active');
-    });
-  }
+    // --- КЛИК ПО ОБЩЕМУ BLUR ---
+    if (blur && rightContent && bar) {
+        blur.addEventListener('click', () => {
+            // НЕ ТРОГАЕМ service-page если он не открыт
+            if (!rightContent.classList.contains('active')) return;
 
-  // --- КЛИК ПО БЛЮРУ ---
-  if (blur && rightContent && bar) {
-    blur.addEventListener('click', () => {
-      rightContent.classList.remove('active');
-      bar.classList.add('active');
-      blur.classList.remove('active');
-    });
-  }
+            rightContent.classList.remove('active');
+            bar.classList.add('active');
+            blur.classList.remove('active');
+        });
+    }
 });
+
 
 
 
@@ -522,3 +525,53 @@ function initSwxSlider() {
 
 initSwxSlider();
 window.addEventListener('resize', initSwxSlider);
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const blur = document.querySelector('.modal-page-blur');
+    const modals = document.querySelectorAll('.service-modal');
+
+    // Если нет блюра или модалок — даже не запускаем обработчики
+    // (не будет ошибок на других страницах)
+    const hasAnyModal = modals.length > 0;
+    const hasBlur = !!blur;
+
+    // Открытие модалки
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-modal-target]');
+        if (!btn) return;
+
+        if (!hasAnyModal || !hasBlur) return;
+
+        const target = btn.getAttribute('data-modal-target');
+        const modal = document.querySelector(`.${target}`);
+        if (!modal) return;
+
+        closeAllModals();
+
+        modal.classList.add('active');
+        blur.classList.add('active');
+    });
+
+    // Закрытие по блюру
+    if (hasBlur) {
+        blur.addEventListener('click', () => {
+            if (!hasAnyModal) return;
+            closeAllModals();
+        });
+    }
+
+    // Закрытие по кнопке .service-page-modal-close
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.service-page-modal-close')) return;
+        if (!hasAnyModal || !hasBlur) return;
+        closeAllModals();
+    });
+
+    function closeAllModals() {
+        modals.forEach(modal => modal.classList.remove('active'));
+        if (hasBlur) blur.classList.remove('active');
+    }
+});
+
