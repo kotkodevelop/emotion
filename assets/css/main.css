@@ -3061,6 +3061,12 @@ input[type="search"]::-webkit-search-results-decoration {
 .service-page-modal-swxadd {
   max-width: 500px;
 }
+.service-page-modal-promo {
+  max-width: 500px;
+}
+.service-page-modal-promo .service-page-modal-title {
+  margin-bottom: 8px;
+}
 .service-page-modal-swxadd .service-page-modal-title {
   margin-bottom: 8px;
 }
@@ -4119,5 +4125,8 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .service-page-modal-pack-low-bar-prices .swx-price {
     justify-content: flex-start;
+  }
+  .service-page-modal-promo .service-page-modal-inner-container {
+    padding-bottom: 100px;
   }
 }
