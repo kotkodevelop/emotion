@@ -530,7 +530,7 @@ window.addEventListener('resize', initSwxSlider);
 
 document.addEventListener('DOMContentLoaded', () => {
     const blur = document.querySelector('.modal-page-blur');
-    const modals = document.querySelectorAll('.service-modal');
+    const modals = document.querySelectorAll('.service-page-modal');
 
     // Если нет блюра или модалок — даже не запускаем обработчики
     // (не будет ошибок на других страницах)

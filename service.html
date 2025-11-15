@@ -137,8 +137,8 @@
     <!-- Modals -->
     <!-- Modal page blur -->
     <div class="modal-page-blur"></div>
-    <!--Share modal-->
-    <div class="service-page-modal service-page-modal-share service-modal">
+    <!-- Share modal -->
+    <div class="service-page-modal service-page-modal-share">
       <div class="service-page-modal-container">
         <div class="service-page-modal-close">
           <img src="assets/img/service-page-right-content-closer.svg" alt="close">
@@ -177,6 +177,63 @@
             <span>MAX</span>
           </button>
         </div>
+      </div>
+    </div>
+    <!-- Tip modal -->
+    <div class="service-page-modal service-page-modal-tip">
+      <div class="service-page-modal-container">
+        <div class="service-page-modal-close">
+          <img src="assets/img/service-page-right-content-closer.svg" alt="close">
+        </div>
+        <div class="service-page-modal-title">Намекнуть любимому</div>
+        <div class="service-page-modal-desc">
+          Отправим информацию об этой услуге на указанный контакт. И добавим скидку на бронирование.
+        </div>
+        <div class="included-item service-page-modal-share-inc">
+          <img src="assets/img/card-1.jpg" alt="incl" class="included-item__img" />
+          <div>
+            <h4 class="included-item__title">Романтическое свидание на крыше в центре Москвы</h4>
+            <p class="included-item__desc">Положите целый город к ногам своей второй половинки</p>
+          </div>
+        </div>
+        <div class="service-page-modal-form-desc">
+          Укажите контактные данные кому нужно отправить намёк на эту услугу
+        </div>
+        <form class="service-page-modal-form">
+          <div class="service-page-modal-form-input">
+            <span>Имя</span>
+            <input type="text">
+          </div>
+          <div class="service-page-modal-form-input">
+            <span>Телефон</span>
+            <input type="tel">
+          </div>
+          <div class="service-page-modal-form-input">
+            <span>Email</span>
+            <input type="email">
+          </div>
+          <div class="service-page-modal-form-textarea">
+            <span>Сообщение</span>
+            <textarea name="message" id="service-page-modal-form-textarea"></textarea>
+          </div>
+          <div class="service-page-modal-form-policy-wrapper">
+            <label class="custom-checkbox">
+              <input type="checkbox" checked>
+              <span class="custom-checkbox__box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 11 11">
+                  <path fill="#fff" d="M4.219 10.43c-.375 0-.657-.135-.908-.434L.287 6.334C.077 6.094 0 5.877 0 5.631c0-.55.41-.955.979-.955.328 0 .562.117.779.375l2.431 3.017L8.982.51c.235-.37.475-.51.862-.51.562 0 .972.398.972.95 0 .204-.064.421-.216.655l-5.461 8.35c-.211.322-.522.475-.92.475Z"/>
+                </svg>
+              </span>
+            </label>
+            <div class="service-page-modal-form-policy-text">
+              Я соглашаюсь с <a href="#">Правилами оказания услуг</a>, <a href="#">Политикой конфиденциальности</a> и <a href="#">Правилами возврата</a>
+            </div>
+          </div>
+          <div class="service-page-right-box__button">
+            Отправить
+            <img src="assets/img/arrow-right-btn-right-box.svg" alt="arrow">
+          </div>
+        </form>
       </div>
     </div>
 
@@ -1269,7 +1326,7 @@
                     </div>
                 </div>
             </div>
-            <div class="service-page-tip-box">
+            <div class="service-page-tip-box" data-modal-target="service-page-modal-tip">
               <div class="tip-box">
                 <div class="tip-icon">
                   <img src="assets/img/tip-heart.svg" alt="heart icon" />
