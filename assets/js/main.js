@@ -575,3 +575,134 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+const qtyButtons = document.querySelectorAll('#qty .service-page-modal-swxadd-btn');
+const sizeButtons = document.querySelectorAll('#size .service-page-modal-swxadd-btn');
+const finalPriceEl = document.getElementById('finalPrice');
+
+let basePrice = 26900;  // базовая цена за выбранное количество
+let sizeExtra = 0;      // добавка за размер
+
+function updatePrice() {
+    const final = basePrice + sizeExtra;
+    finalPriceEl.textContent = final.toLocaleString('ru-RU') + ' ₽';
+}
+
+qtyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        qtyButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        basePrice = parseInt(btn.dataset.price);
+        updatePrice();
+    });
+});
+
+sizeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        sizeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        sizeExtra = parseInt(btn.dataset.extra);
+        updatePrice();
+    });
+});
+
+// Начальное обновление
+updatePrice();
+
+
+
+document.querySelectorAll('.service-page-modal-pack-screen').forEach(screen => {
+  const switchContainer = screen.querySelector('.switch-container');
+  if (!switchContainer) return;
+
+  const buttons = switchContainer.querySelectorAll('.service-page-modal-pack-inner-btn');
+  const contents = screen.querySelectorAll('.service-m-content-block');
+
+  // Найти активный контент
+  let activeContent = screen.querySelector('.service-m-content-block.active');
+
+  if (!activeContent) {
+    // Если нет активного, выбираем первый
+    activeContent = contents[0];
+    activeContent.classList.add('active');
+  }
+
+  // Ставим активную кнопку, соответствующую активному контенту
+  buttons.forEach(b => b.classList.remove('active'));
+  const activeIndex = [...contents].indexOf(activeContent);
+  if (buttons[activeIndex]) {
+    buttons[activeIndex].classList.add('active');
+  }
+
+  // Устанавливаем начальный класс switch-container
+  if (activeIndex === 0) {
+    switchContainer.classList.add('active-left');
+    switchContainer.classList.remove('active-right');
+  } else {
+    switchContainer.classList.add('active-right');
+    switchContainer.classList.remove('active-left');
+  }
+
+  // Обработчик кнопок
+  buttons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      // Снимаем активность со всех кнопок
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Переключаем контент
+      const tab = btn.dataset.tab;
+      contents.forEach(c => c.classList.toggle('active', c.id === tab));
+
+      // Меняем класс switch-container
+      if (idx === 0) {
+        switchContainer.classList.add('active-left');
+        switchContainer.classList.remove('active-right');
+      } else {
+        switchContainer.classList.add('active-right');
+        switchContainer.classList.remove('active-left');
+      }
+    });
+  });
+});
+
+
+
+
+const changers = document.querySelectorAll('.service-page-modal-pack-changer');
+const screens = document.querySelectorAll('.service-page-modal-pack-screen');
+
+changers.forEach((changer, index) => {
+  changer.addEventListener('click', () => {
+
+    // Активируем changer
+    changers.forEach(c => c.classList.remove('active'));
+    changer.classList.add('active');
+
+    // Скрываем экраны
+    screens.forEach(screen => screen.classList.remove('active'));
+
+    // Показываем активный экран
+    const activeScreen = screens[index];
+    activeScreen.classList.add('active');
+
+    // Сбрасываем ВСЕ switch-container внутри активного экрана
+    activeScreen.querySelectorAll('.switch-container').forEach(sc => {
+      sc.classList.remove('active-left', 'active-right');
+    });
+
+    // Сбрасываем кнопки в каждом switch-container внутри активного screen
+    activeScreen.querySelectorAll('.service-tabs').forEach(tabs => {
+      const btns = tabs.querySelectorAll('.service-page-modal-pack-inner-btn');
+      const contents = tabs.querySelectorAll('.service-m-content-block');
+
+      btns.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+    });
+
+  });
+});
+

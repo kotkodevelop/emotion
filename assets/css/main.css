@@ -1163,8 +1163,14 @@ input[type="search"]::-webkit-search-results-decoration {
   box-shadow: 0px 0px 0px 1px #2222220D;
   border-radius: 20px;
   cursor: pointer;
+  transition: .3s;
 }
-
+.service-page-tip-box:hover {
+  box-shadow: 0px 0px 0px 3px #FF395C1A;
+}
+.service-page-tip-box:active {
+  opacity: 0.6;
+}
 .tip-box {
   display: flex;
   align-items: flex-start;
@@ -1173,8 +1179,8 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 20px;
   padding: 16px;
   box-shadow: 0px 6px 8px -2px #2222220D;
+  transition: .3s;
 }
-
 .tip-icon img {
   width: 28px;
   height: 28px;
@@ -1897,6 +1903,9 @@ input[type="search"]::-webkit-search-results-decoration {
   row-gap: 20px;
   margin-top: 16px;
   margin-bottom: 32px;
+}
+.included-list .included-item {
+  cursor: pointer;
 }
 .included-item {
   display: flex;
@@ -2868,6 +2877,10 @@ input[type="search"]::-webkit-search-results-decoration {
   top: 12px;
   position: absolute;
   transition: .3s;
+  z-index: 3;
+}
+.service-page-modal-pack .service-page-modal-close {
+  top: 12px;
 }
 .service-page-modal-close:hover {
   background: var(--fill-2, #22222214);
@@ -3044,6 +3057,363 @@ input[type="search"]::-webkit-search-results-decoration {
 .service-page-modal-form-policy-text a {
   text-decoration: underline;
   color: #737373;
+}
+.service-page-modal-swxadd {
+  max-width: 500px;
+}
+.service-page-modal-swxadd .service-page-modal-title {
+  margin-bottom: 8px;
+}
+.service-page-modal-big-image-wrapper {
+  border-radius: 32px 32px 0 0;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  height: 375px;
+}
+.service-page-modal-inner-container {
+  padding: 24px;
+}
+.service-page-modal-swxadd-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.service-page-modal-swxadd-group p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  margin: 0;
+  color: #737373;
+  margin-bottom: 5px;
+}
+.service-page-modal-swxadd-btn {
+  padding: 10px 14px;
+  border-radius: 20px;
+  background: #f1f1f1;
+  cursor: pointer;
+  user-select: none;
+  transition: .2s;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+.service-page-modal-swxadd-btn:hover {
+  background: #22222214;
+}
+.service-page-modal-swxadd-btn.active {
+  background: #222222;
+  color: #fff;
+}
+
+.service-page-modal-swxadd-price-btn {
+  padding: 10px 12px;
+  border-radius: 18px;
+  background: #FF395C;
+  color: #fff;
+  border: none;
+  margin: 0 auto;
+  margin-top: 56px;
+  margin-bottom: 16px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 4px;
+}
+.service-page-modal-swxadd-price-btn span {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+.service-page-modal-swxadd-price-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.service-page-modal-swx {
+  max-width: 500px;
+}
+.service-page-modal-swx .service-page-modal-inner-container {
+  margin-bottom: 140px;
+}
+.service-page-modal-swx-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.service-page-modal-swx-nav-left {
+  transform: translateX(calc(-100% - 24px));
+  width: 76px;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.service-page-modal-swx-nav-right {
+  transform: translateX(calc(100% + 24px));
+  width: 76px;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.service-page-modal-swx-nav-right img {
+  margin-right: -3px;
+}
+.service-page-modal-swx-nav-left img {
+  margin-left: -3px;
+}
+.service-page-modal-swx-nav-btn {
+  box-shadow: 0px 3px 8px -2px #00000014;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+.service-page-modal-inc {
+  max-width: 500px;
+}
+.service-page-modal-inc .service-page-modal-title {
+  margin-bottom: 8px;
+}
+.service-page-modal-inc .included-item {
+  margin-bottom: 16px;
+}
+.service-page-modal-inc-wrapper {
+  max-height: 750px;
+  overflow-y: auto;
+  border-radius: 24px;
+}
+.service-page-modal-pack {
+  max-width: 500px;
+}
+.service-page-modal-pack-image {
+  width: 164px;
+  height: 260px;
+  box-shadow: 0px 3px 8px -1px #00000026;
+  border: 1px solid var(--fill-1, #2222220D);
+  background-color: #2222220D;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.service-page-modal-pack-image img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.service-page-modal-pack-title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 120%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.service-page-modal-pack-desc {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  text-align: center;
+  max-width: 450px;
+  margin: 0 auto;
+  color: #737373;
+}
+.service-page-modal-pack .service-page-modal-container {
+  padding: 24px;
+}
+.switch-container {
+  display: flex;
+  background: var(--fill-1, #2222220D);
+  border-radius: 14px;
+  position: relative;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.service-page-modal-pack-inner-btn {
+  position: relative;
+  padding: 10px 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 12px;
+  color: #737373;
+  transition: .3s;
+  width: 50%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+
+}
+
+.service-page-modal-pack-inner-btn.active {
+  color: #222;
+}
+
+.switch-container::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  width: 50%;
+  background: #fff;
+  box-shadow: 0px 6px 8px -2px var(--fill-1);
+  border-radius: 12px;
+  transition: .3s ease;
+  z-index: 0;
+}
+
+.service-page-modal-pack-inner-btn {
+  z-index: 1;
+}
+
+.service-page-modal-pack-inner-btn.active:nth-child(1) ~ ::before {
+  transform: translateX(0);
+}
+
+.service-page-modal-pack-inner-btn.active:nth-child(2) ~ ::before {
+  transform: translateX(100%);
+}
+
+.badge {
+  background: #FF395C;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-left: 8px;
+}
+
+/* Контент */
+.switch-content {
+  margin-top: 24px;
+}
+
+.service-m-content-block {
+  display: none;
+}
+
+.service-m-content-block.active {
+  display: block;
+}
+.switch-container.active-right::before {
+  left: calc(50% - 2px);
+}
+.service-m-content-block-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 280px;
+  overflow-y: auto;
+  border-radius: 20px;
+  padding-bottom: 80px;
+}
+.service-page-modal-pack-low-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px -1px 0px 0px var(--fill-2);
+  background: #fff;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 32px 32px;
+  height: 84px;
+}
+.service-page-modal-pack-low-bar-prices .swx-price {
+  flex-wrap: wrap;
+}
+.service-page-modal-pack-low-bar-prices .swx-current {
+  width: 100%;
+}
+.service-page-modal-pack-low-bar-btn {
+  width: 157px;
+  padding: 10px 12px;
+  border-radius: 18px;
+  background: #FF395C;
+  color: #fff;
+  border: none;
+  margin: 0;
+  height: 52px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.service-page-modal-pack-low-bar-btn.active {
+  background: #222;
+}
+.service-page-modal-pack-low-bar-btn span {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+.service-page-modal-pack-changers {
+  position: absolute;
+  left: calc(100% + 24px);
+  top: 0;
+}
+.service-page-modal-pack-changers {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.service-page-modal-pack-changer {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: .3s;
+  text-wrap: nowrap;
+}
+.service-page-modal-pack-changer.active {
+  box-shadow: 0px 0px 0px 2px #222 inset;
+  background: #fff;
+}
+.service-page-modal-pack-changer:hover {
+  background: #fff;
+}
+.service-page-modal-pack-changer p {
+  margin: 0;
+  margin-bottom: 2px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+}
+.service-page-modal-pack-changer span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: #737373;
+}
+
+.service-page-modal-pack-screen {
+  display: none;
+}
+.service-page-modal-pack-screen.active {
+  display: block;
 }
 
 /* adjust positions for header height on small screens */
@@ -3673,5 +4043,81 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .service-page-modal-container {
     padding: 16px;
+  }
+  .service-page-modal-swxadd-price-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .service-page-modal-swxadd .service-page-modal-inner-container {
+    margin-bottom: 80px;
+  }
+  .service-page-modal-swx-nav {
+    display: none;
+  }
+  .service-page-modal-inc-wrapper {
+    max-height: unset;
+    overflow-y: unset;
+    border-radius: unset;
+  }
+  .service-m-content-block-items {
+    max-height: unset;
+    overflow-y: unset;
+    border-radius: unset;
+  }
+  .service-page-modal.service-page-modal-pack{
+    background: transparent;
+  }
+  .service-page-modal-pack-changers {
+    left: 0;
+    top: 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+    height: 66px;
+    width: 100%;
+    overflow-x: auto;
+    padding-left: 12px;
+    padding-right: 16px;
+  }
+  .service-page-modal-pack .service-page-modal-container {
+    border-radius: 32px 32px 0 0;
+    margin-top: 66px;
+    background: #fff;
+  }
+  .service-page-modal-pack-changer span {
+    display: none;
+  }
+  .service-page-modal-pack-changer {
+    border-radius: 28px;
+  }
+  .service-page-modal-pack-changer p {
+    margin: 0;
+  }
+  .service-page-mob-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 996;
+    background: #fff;
+    width: 100%;
+  }
+  .service-page-modal-close {
+    right: unset;
+    left: 100%;
+    top: 0;
+    position: sticky;
+    transition: .3s;
+    transform: translate(-12px, 12px);
+    z-index: 3;
+  }
+  .service-page-modal-pack .service-page-modal-close {
+    transform: translate(8px, -8px);
+    top: 24px;
+  }
+  .service-page-modal-pack-low-bar-prices .swx-price {
+    justify-content: flex-start;
   }
 }
