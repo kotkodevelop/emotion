@@ -4683,7 +4683,7 @@ input[type="search"]::-webkit-search-results-decoration {
     visibility: visible;
     pointer-events: auto;
     max-width: 100% !important;
-    max-height: 95vh; 
+    max-height: 90vh; 
     overflow-y: auto;
   }
   .service-page-modal.active {
