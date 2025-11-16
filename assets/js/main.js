@@ -706,3 +706,170 @@ changers.forEach((changer, index) => {
   });
 });
 
+
+
+
+// ELEMENTS
+const galleryScreen = document.querySelector('.service-page-gallery-screen');
+
+const gridScreen = document.querySelector('.service-page-gallery-screen-content');
+const singleScreen = document.querySelector('.service-page-gallery-screen-single-page');
+
+const gridBtn = document.querySelector('.service-page-gallery-screen-grid-btn');
+const closeBtn = document.querySelector('.service-page-gallery-screen-close');
+const openerBtn = document.querySelector('.service-page-gallery-item-opener');
+
+const headerCount = document.querySelector('.service-page-gallery-screen-header-count');
+
+const thumbs = document.querySelectorAll('.gallery-grid-item'); // миниатюры внутри галереи
+const externalThumbs = document.querySelectorAll('.external-gallery-open'); // внешние фото
+
+let swiper;
+
+
+// =======================
+// HEADER UPDATE FUNCTIONS
+// =======================
+
+const totalImages = thumbs.length;
+
+// GRID MODE header
+function showGridHeader() {
+  headerCount.innerHTML = `${totalImages} фото / видео`;
+}
+
+// SLIDER header
+function showSliderHeader(currentIndex) {
+  headerCount.innerHTML = `
+    <span id="current">${currentIndex}</span> /
+    <span id="total">${totalImages}</span>
+  `;
+}
+
+
+// =======================
+// MODE SWITCHING
+// =======================
+
+function setGridMode() {
+  galleryScreen.classList.remove('single-mode');
+  galleryScreen.classList.add('grid-mode');
+
+  gridBtn.classList.remove('grid-btn-active'); // скрываем кнопку
+  showGridHeader();
+}
+
+function setSingleMode() {
+  galleryScreen.classList.remove('grid-mode');
+  galleryScreen.classList.add('single-mode');
+
+  gridBtn.classList.add('grid-btn-active'); // показываем кнопку
+}
+
+
+
+// =======================
+// OPEN GALLERY (GRID)
+// =======================
+
+function openGallery() {
+  galleryScreen.classList.add('active');
+
+  setGridMode();
+
+  gridScreen.classList.add('active');
+  singleScreen.classList.remove('active');
+}
+
+
+// =======================
+// OPEN SLIDE (SWIPER)
+// =======================
+
+function openSlide(index) {
+
+  galleryScreen.classList.add('active');
+
+  gridScreen.classList.remove('active');
+  singleScreen.classList.add('active');
+
+  setSingleMode();
+  showSliderHeader(index + 1);
+
+  if (!swiper) {
+    swiper = new Swiper('.service-page-gallery-big-swiper', {
+      initialSlide: index,
+      loop: 1,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on: {
+        slideChange: (sw) => {
+          showSliderHeader(sw.realIndex + 1);
+        }
+      }
+    });
+  } else {
+    swiper.slideTo(index, 0);
+    showSliderHeader(index + 1);
+  }
+}
+
+
+// =======================
+// EVENTS
+// =======================
+
+// 1. Открытие по кнопке
+openerBtn?.addEventListener('click', () => {
+  openGallery();
+});
+
+
+// 2. Открытие по клику на миниатюру внутри грида
+thumbs.forEach(img => {
+  img.addEventListener('click', () => {
+    const index = +img.dataset.index;
+    openSlide(index);
+  });
+});
+
+
+// 3. Открытие по внешним фотографиям
+externalThumbs.forEach(img => {
+  img.addEventListener('click', () => {
+    const index = +img.dataset.index;
+    openSlide(index);
+  });
+});
+
+
+// 4. Кнопка GRID — возврат в сетку
+gridBtn.addEventListener('click', () => {
+  setGridMode();
+
+  singleScreen.classList.remove('active');
+  gridScreen.classList.add('active');
+});
+
+
+// 5. Кнопка CLOSE — закрыть весь экран
+closeBtn.addEventListener("click", () => {
+  // Закрываем весь экран
+  galleryScreen.classList.remove("active");
+
+  // Сбрасываем SINGLE PAGE
+  singleScreen.classList.remove("active");
+
+  // Возвращаем GRID PAGE
+  gridScreen.classList.remove('active');
+
+  // Возвращаем режим по умолчанию
+  galleryScreen.classList.remove("single-mode");
+  galleryScreen.classList.add("grid-mode");
+
+  // Обновляем хедер под грид
+  showGridHeader();
+});
+
