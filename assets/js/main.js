@@ -873,3 +873,85 @@ closeBtn.addEventListener("click", () => {
   showGridHeader();
 });
 
+
+
+
+
+// =====================
+// СОБИРАЕМ ВСЕ АЙТЕМЫ
+// =====================
+const items = [...document.querySelectorAll(".inc-swx-mod-item")];
+
+// Индекс текущего айтема
+let currentIndex = 0;
+
+
+// =====================
+// ЭЛЕМЕНТЫ МОДАЛКИ
+// =====================
+const imgWrapper = document.querySelector('.swx-inc-modal-img');
+const titleEl = document.querySelector('.service-page-modal-swx-title');
+const descEl = document.querySelector('.service-page-modal-swx-desc');
+const contentWrapper = document.querySelector('.service-page-modal-content');
+
+
+// =====================
+// ОТРИСОВКА КОНТЕНТА
+// =====================
+function renderSlide(index, fade = false) {
+  const item = items[index];
+
+  if (!item) return;
+
+  const img = item.dataset.img;
+  const title = item.dataset.title;
+  const desc = item.dataset.desc;
+
+  if (fade) {
+    contentWrapper.classList.add("fade-out");
+    imgWrapper.classList.add("fade-out");
+  }
+
+  setTimeout(() => {
+    imgWrapper.style.backgroundImage = `url(${img})`;
+    titleEl.textContent = title;
+    descEl.textContent = desc;
+
+    contentWrapper.classList.remove("fade-out");
+    imgWrapper.classList.remove("fade-out");
+  }, fade ? 300 : 0);
+}
+
+
+
+// =====================
+// КЛИК ПО .included-item
+// =====================
+items.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    currentIndex = index;          // ← Запоминаем какой item открыт
+    renderSlide(currentIndex);     // ← Загружаем его в модалку
+    // Открытие модалки у тебя в другом месте — не трогаю
+  });
+});
+
+
+
+// =====================
+// КНОПКИ ВЛЕВО / ВПРАВО
+// =====================
+document
+  .querySelector(".service-page-modal-swx-nav-left .service-page-modal-swx-nav-btn")
+  .addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    renderSlide(currentIndex, true);
+  });
+
+document
+  .querySelector(".service-page-modal-swx-nav-right .service-page-modal-swx-nav-btn")
+  .addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % items.length;
+    renderSlide(currentIndex, true);
+  });
+
+
