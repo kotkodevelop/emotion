@@ -243,14 +243,21 @@ if (catInfoOpenBtn && catInfoText) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.custom-select-wrapper');
+
+  // Если селекта нет — выходим и не выполняем остальной код
+  if (!wrapper) return;
+
   const header = wrapper.querySelector('.custom-select-header');
   const list = wrapper.querySelector('.custom-select-list');
   const valueBox = wrapper.querySelector('.custom-value-right-box');
   const realSelect = wrapper.querySelector('#realSelect');
 
+  // Если чего-то важного нет — тоже прекращаем выполнение
+  if (!header || !list || !valueBox || !realSelect) return;
+
   // Клик по шапке — открывает/закрывает список
   header.addEventListener('click', (e) => {
-    e.stopPropagation(); // чтобы не закрылось сразу
+    e.stopPropagation();
     wrapper.classList.toggle('open');
   });
 
@@ -258,20 +265,16 @@ document.addEventListener('DOMContentLoaded', () => {
   list.querySelectorAll('li').forEach((item) => {
     item.addEventListener('click', (e) => {
       e.stopPropagation();
+
       const value = item.dataset.value;
       const text = item.textContent;
 
-      // Обновляем отображение
       valueBox.textContent = text;
-
-      // Обновляем скрытый select
       realSelect.value = value;
 
-      // Активный пункт
       list.querySelectorAll('li').forEach(li => li.classList.remove('active'));
       item.classList.add('active');
 
-      // Закрыть список
       wrapper.classList.remove('open');
     });
   });
@@ -283,6 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 
 
 
@@ -577,40 +581,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-const qtyButtons = document.querySelectorAll('#qty .service-page-modal-swxadd-btn');
-const sizeButtons = document.querySelectorAll('#size .service-page-modal-swxadd-btn');
-const finalPriceEl = document.getElementById('finalPrice');
+document.addEventListener('DOMContentLoaded', () => {
+    const qtyButtons = document.querySelectorAll('#qty .service-page-modal-swxadd-btn');
+    const sizeButtons = document.querySelectorAll('#size .service-page-modal-swxadd-btn');
+    const finalPriceEl = document.getElementById('finalPrice');
 
-let basePrice = 26900;  // базовая цена за выбранное количество
-let sizeExtra = 0;      // добавка за размер
+    // Если этих элементов нет — просто не запускаем логику
+    if (!finalPriceEl || qtyButtons.length === 0 || sizeButtons.length === 0) {
+        return;
+    }
 
-function updatePrice() {
-    const final = basePrice + sizeExtra;
-    finalPriceEl.textContent = final.toLocaleString('ru-RU') + ' ₽';
-}
+    let basePrice = 26900;
+    let sizeExtra = 0;
 
-qtyButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        qtyButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    function updatePrice() {
+        const final = basePrice + sizeExtra;
+        finalPriceEl.textContent = final.toLocaleString('ru-RU') + ' ₽';
+    }
 
-        basePrice = parseInt(btn.dataset.price);
-        updatePrice();
+    qtyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            qtyButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            basePrice = parseInt(btn.dataset.price);
+            updatePrice();
+        });
     });
+
+    sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sizeButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            sizeExtra = parseInt(btn.dataset.extra);
+            updatePrice();
+        });
+    });
+
+    updatePrice();
 });
 
-sizeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        sizeButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
 
-        sizeExtra = parseInt(btn.dataset.extra);
-        updatePrice();
-    });
-});
-
-// Начальное обновление
-updatePrice();
 
 
 
@@ -709,249 +721,237 @@ changers.forEach((changer, index) => {
 
 
 
-// ELEMENTS
-const galleryScreen = document.querySelector('.service-page-gallery-screen');
+document.addEventListener('DOMContentLoaded', () => {
 
-const gridScreen = document.querySelector('.service-page-gallery-screen-content');
-const singleScreen = document.querySelector('.service-page-gallery-screen-single-page');
+  // ELEMENTS
+  const galleryScreen = document.querySelector('.service-page-gallery-screen');
+  const gridScreen = document.querySelector('.service-page-gallery-screen-content');
+  const singleScreen = document.querySelector('.service-page-gallery-screen-single-page');
 
-const gridBtn = document.querySelector('.service-page-gallery-screen-grid-btn');
-const closeBtn = document.querySelector('.service-page-gallery-screen-close');
-const openerBtn = document.querySelector('.service-page-gallery-item-opener');
+  const gridBtn = document.querySelector('.service-page-gallery-screen-grid-btn');
+  const closeBtn = document.querySelector('.service-page-gallery-screen-close');
+  const openerBtn = document.querySelector('.service-page-gallery-item-opener');
 
-const headerCount = document.querySelector('.service-page-gallery-screen-header-count');
+  const headerCount = document.querySelector('.service-page-gallery-screen-header-count');
 
-const thumbs = document.querySelectorAll('.gallery-grid-item'); // миниатюры внутри галереи
-const externalThumbs = document.querySelectorAll('.external-gallery-open'); // внешние фото
+  const thumbs = document.querySelectorAll('.gallery-grid-item');
+  const externalThumbs = document.querySelectorAll('.external-gallery-open');
 
-let swiper;
+  // Если галереи нет — выходим полностью
+  if (
+    !galleryScreen ||
+    !gridScreen ||
+    !singleScreen ||
+    !headerCount ||
+    thumbs.length === 0
+  ) {
+    return; // ничего не делаем
+  }
 
+  let swiper;
+  const totalImages = thumbs.length;
 
-// =======================
-// HEADER UPDATE FUNCTIONS
-// =======================
+  // GRID MODE header
+  function showGridHeader() {
+    headerCount.innerHTML = `${totalImages} фото / видео`;
+  }
 
-const totalImages = thumbs.length;
+  // SLIDER header
+  function showSliderHeader(currentIndex) {
+    headerCount.innerHTML = `
+      <span id="current">${currentIndex}</span> /
+      <span id="total">${totalImages}</span>
+    `;
+  }
 
-// GRID MODE header
-function showGridHeader() {
-  headerCount.innerHTML = `${totalImages} фото / видео`;
-}
+  function setGridMode() {
+    galleryScreen.classList.remove('single-mode');
+    galleryScreen.classList.add('grid-mode');
 
-// SLIDER header
-function showSliderHeader(currentIndex) {
-  headerCount.innerHTML = `
-    <span id="current">${currentIndex}</span> /
-    <span id="total">${totalImages}</span>
-  `;
-}
+    gridBtn?.classList.remove('grid-btn-active');
+    showGridHeader();
+  }
 
+  function setSingleMode() {
+    galleryScreen.classList.remove('grid-mode');
+    galleryScreen.classList.add('single-mode');
 
-// =======================
-// MODE SWITCHING
-// =======================
+    gridBtn?.classList.add('grid-btn-active');
+  }
 
-function setGridMode() {
-  galleryScreen.classList.remove('single-mode');
-  galleryScreen.classList.add('grid-mode');
+  function openGallery() {
+    galleryScreen.classList.add('active');
 
-  gridBtn.classList.remove('grid-btn-active'); // скрываем кнопку
-  showGridHeader();
-}
+    setGridMode();
 
-function setSingleMode() {
-  galleryScreen.classList.remove('grid-mode');
-  galleryScreen.classList.add('single-mode');
+    gridScreen.classList.add('active');
+    singleScreen.classList.remove('active');
+  }
 
-  gridBtn.classList.add('grid-btn-active'); // показываем кнопку
-}
+  function openSlide(index) {
+    galleryScreen.classList.add('active');
 
+    gridScreen.classList.remove('active');
+    singleScreen.classList.add('active');
 
-
-// =======================
-// OPEN GALLERY (GRID)
-// =======================
-
-function openGallery() {
-  galleryScreen.classList.add('active');
-
-  setGridMode();
-
-  gridScreen.classList.add('active');
-  singleScreen.classList.remove('active');
-}
-
-
-// =======================
-// OPEN SLIDE (SWIPER)
-// =======================
-
-function openSlide(index) {
-
-  galleryScreen.classList.add('active');
-
-  gridScreen.classList.remove('active');
-  singleScreen.classList.add('active');
-
-  setSingleMode();
-  showSliderHeader(index + 1);
-
-  if (!swiper) {
-    swiper = new Swiper('.service-page-gallery-big-swiper', {
-      initialSlide: index,
-      loop: 1,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      on: {
-        slideChange: (sw) => {
-          showSliderHeader(sw.realIndex + 1);
-        }
-      }
-    });
-  } else {
-    swiper.slideTo(index, 0);
+    setSingleMode();
     showSliderHeader(index + 1);
-  }
-}
 
-
-// =======================
-// EVENTS
-// =======================
-
-// 1. Открытие по кнопке
-openerBtn?.addEventListener('click', () => {
-  openGallery();
-});
-
-
-// 2. Открытие по клику на миниатюру внутри грида
-thumbs.forEach(img => {
-  img.addEventListener('click', () => {
-    const index = +img.dataset.index;
-    openSlide(index);
-  });
-});
-
-
-// 3. Открытие по внешним фотографиям
-externalThumbs.forEach(img => {
-  img.addEventListener('click', () => {
-    const index = +img.dataset.index;
-    openSlide(index);
-  });
-});
-
-
-// 4. Кнопка GRID — возврат в сетку
-gridBtn.addEventListener('click', () => {
-  setGridMode();
-
-  singleScreen.classList.remove('active');
-  gridScreen.classList.add('active');
-});
-
-
-// 5. Кнопка CLOSE — закрыть весь экран
-closeBtn.addEventListener("click", () => {
-  // Закрываем весь экран
-  galleryScreen.classList.remove("active");
-
-  // Сбрасываем SINGLE PAGE
-  singleScreen.classList.remove("active");
-
-  // Возвращаем GRID PAGE
-  gridScreen.classList.remove('active');
-
-  // Возвращаем режим по умолчанию
-  galleryScreen.classList.remove("single-mode");
-  galleryScreen.classList.add("grid-mode");
-
-  // Обновляем хедер под грид
-  showGridHeader();
-});
-
-
-
-
-
-// =====================
-// СОБИРАЕМ ВСЕ АЙТЕМЫ
-// =====================
-const items = [...document.querySelectorAll(".inc-swx-mod-item")];
-
-// Индекс текущего айтема
-let currentIndex = 0;
-
-
-// =====================
-// ЭЛЕМЕНТЫ МОДАЛКИ
-// =====================
-const imgWrapper = document.querySelector('.swx-inc-modal-img');
-const titleEl = document.querySelector('.service-page-modal-swx-title');
-const descEl = document.querySelector('.service-page-modal-swx-desc');
-const contentWrapper = document.querySelector('.service-page-modal-content');
-
-
-// =====================
-// ОТРИСОВКА КОНТЕНТА
-// =====================
-function renderSlide(index, fade = false) {
-  const item = items[index];
-
-  if (!item) return;
-
-  const img = item.dataset.img;
-  const title = item.dataset.title;
-  const desc = item.dataset.desc;
-
-  if (fade) {
-    contentWrapper.classList.add("fade-out");
-    imgWrapper.classList.add("fade-out");
+    if (!swiper) {
+      swiper = new Swiper('.service-page-gallery-big-swiper', {
+        initialSlide: index,
+        loop: 1,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          slideChange: (sw) => {
+            showSliderHeader(sw.realIndex + 1);
+          }
+        }
+      });
+    } else {
+      swiper.slideTo(index, 0);
+      showSliderHeader(index + 1);
+    }
   }
 
-  setTimeout(() => {
-    imgWrapper.style.backgroundImage = `url(${img})`;
-    titleEl.textContent = title;
-    descEl.textContent = desc;
+  openerBtn?.addEventListener('click', () => openGallery());
 
-    contentWrapper.classList.remove("fade-out");
-    imgWrapper.classList.remove("fade-out");
-  }, fade ? 300 : 0);
-}
-
-
-
-// =====================
-// КЛИК ПО .included-item
-// =====================
-items.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    currentIndex = index;          // ← Запоминаем какой item открыт
-    renderSlide(currentIndex);     // ← Загружаем его в модалку
-    // Открытие модалки у тебя в другом месте — не трогаю
+  thumbs.forEach(img => {
+    img.addEventListener('click', () => {
+      const index = +img.dataset.index;
+      openSlide(index);
+    });
   });
+
+  externalThumbs.forEach(img => {
+    img.addEventListener('click', () => {
+      const index = +img.dataset.index;
+      openSlide(index);
+    });
+  });
+
+  gridBtn?.addEventListener('click', () => {
+    setGridMode();
+    singleScreen.classList.remove('active');
+    gridScreen.classList.add('active');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    galleryScreen.classList.remove('active');
+    singleScreen.classList.remove('active');
+    gridScreen.classList.remove('active');
+
+    galleryScreen.classList.remove('single-mode');
+    galleryScreen.classList.add('grid-mode');
+
+    showGridHeader();
+  });
+
 });
 
 
 
-// =====================
-// КНОПКИ ВЛЕВО / ВПРАВО
-// =====================
-document
-  .querySelector(".service-page-modal-swx-nav-left .service-page-modal-swx-nav-btn")
-  .addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    renderSlide(currentIndex, true);
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".inc-swx-mod-item");
+
+  // Если нет ни одного item — просто выходим
+  if (items.length === 0) return;
+
+  const imgWrapper = document.querySelector('.swx-inc-modal-img');
+  const titleEl = document.querySelector('.service-page-modal-swx-title');
+  const descEl = document.querySelector('.service-page-modal-swx-desc');
+  const contentWrapper = document.querySelector('.service-page-modal-content');
+
+  // Проверяем чтобы существовали основные элементы модалки
+  if (!imgWrapper || !titleEl || !descEl || !contentWrapper) return;
+
+  let currentIndex = 0;
+
+  function renderSlide(index, fade = false) {
+    const item = items[index];
+    if (!item) return;
+
+    const img = item.dataset.img;
+    const title = item.dataset.title;
+    const desc = item.dataset.desc;
+
+    if (fade) {
+      contentWrapper.classList.add("fade-out");
+      imgWrapper.classList.add("fade-out");
+    }
+
+    setTimeout(() => {
+      imgWrapper.style.backgroundImage = `url(${img})`;
+      titleEl.textContent = title;
+      descEl.textContent = desc;
+
+      contentWrapper.classList.remove("fade-out");
+      imgWrapper.classList.remove("fade-out");
+    }, fade ? 300 : 0);
+  }
+
+  // Клик на items
+  items.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      currentIndex = index;
+      renderSlide(currentIndex);
+    });
   });
 
-document
-  .querySelector(".service-page-modal-swx-nav-right .service-page-modal-swx-nav-btn")
-  .addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % items.length;
-    renderSlide(currentIndex, true);
+  // Навигация
+  const navLeft = document.querySelector(".service-page-modal-swx-nav-left .service-page-modal-swx-nav-btn");
+  const navRight = document.querySelector(".service-page-modal-swx-nav-right .service-page-modal-swx-nav-btn");
+
+  // Если кнопок нет — безопасно выходим
+  if (navLeft) {
+    navLeft.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      renderSlide(currentIndex, true);
+    });
+  }
+
+  if (navRight) {
+    navRight.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % items.length;
+      renderSlide(currentIndex, true);
+    });
+  }
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector('.reviews-page-content');
+  if (!wrapper) return;
+
+  const buttons = wrapper.querySelectorAll('.reviews-page-control-btn');
+  const screens = wrapper.querySelectorAll('.reviews-page-screen');
+
+  if (!buttons.length || !screens.length) return;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.screen;
+
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      screens.forEach(screen => {
+        screen.classList.remove('active');
+        if (screen.dataset.screen === target) {
+          screen.classList.add('active');
+        }
+      });
+    });
   });
+});
 
 

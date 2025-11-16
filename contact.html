@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no">
+  <title>Мастерская эмоций — Главная</title>
+  <!-- Swiper -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <div class="page-blur"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-controls">
+        <img class="logo" src="assets/img/Logo.svg" alt="Logo">
+        <div class="header-controls-wrap">
+          <button id="catalogBtn" 
+          class="btn ghost" 
+          aria-expanded="false" 
+          aria-controls="catalogPanel">
+          <span class="icon"></span>
+          <p>Каталог</p>
+        </button>
+        <div class="search-nav search-nav-main" >
+          <input type="search" id="searchInput" placeholder="Найти эмоции..." />
+          <button class="search-clear" id="clearBtn" aria-label="Очистить">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path fill="#6A6A6A" fill-opacity=".6" d="M12.53 11.385a.66.66 0 0 1-.007.92.661.661 0 0 1-.925.005L7.994 8.707 4.391 12.31a.673.673 0 0 1-.926-.005.66.66 0 0 1 0-.92l3.603-3.61-3.603-3.603c-.246-.24-.246-.668 0-.926a.667.667 0 0 1 .926 0L7.994 6.85l3.604-3.604a.661.661 0 0 1 .925.006.654.654 0 0 1 .006.92L8.926 7.775l3.603 3.61Z"/>
+            </svg>
+          </button>
+          <button class="search-box search-finder" id="searchBtn" aria-label="Поиск">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+              <path fill="#6A6A6A" fill-opacity=".6" d="M1.807 8.496A6.763 6.763 0 0 1 8.564 1.74a6.763 6.763 0 0 1 6.757 6.757 6.605 6.605 0 0 1-1.262 3.885l3.793 3.802c.225.232.34.54.34.871 0 .69-.506 1.22-1.211 1.22a1.21 1.21 0 0 1-.88-.348l-3.818-3.819a6.57 6.57 0 0 1-3.719 1.146 6.763 6.763 0 0 1-6.757-6.757Zm1.727 0c0 2.78 2.25 5.03 5.03 5.03 2.78 0 5.03-2.25 5.03-5.03 0-2.78-2.25-5.03-5.03-5.03-2.78 0-5.03 2.25-5.03 5.03Z"/>
+            </svg>
+          </button>
+        </div>
+
+        </div>
+        <div class="header-controls-wrap-2">
+          <a href="#">
+            <div class="fav-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path fill="#222" d="M1.616 7.666c0-3.046 2.109-5.171 4.823-5.171 1.577 0 2.822.738 3.561 1.826.747-1.096 1.984-1.826 3.561-1.826 2.723 0 4.823 2.125 4.823 5.171 0 3.553-2.972 7.056-7.612 10.044-.25.158-.556.315-.772.315-.208 0-.523-.157-.772-.315-4.64-2.988-7.612-6.491-7.612-10.044Zm1.669 0c0 2.938 3.063 6.184 6.557 8.508.075.05.125.083.158.083s.083-.033.158-.083c3.494-2.324 6.557-5.57 6.557-8.508 0-2.108-1.386-3.528-3.245-3.528-1.494 0-2.308.922-2.864 1.71-.25.324-.39.44-.606.44-.216 0-.374-.108-.606-.44-.523-.797-1.361-1.71-2.864-1.71-1.86 0-3.245 1.42-3.245 3.528Z"/>
+              </svg>
+            </div>
+          </a>
+          <button id="menuBtn" class="btn" 
+          aria-expanded="false" 
+          aria-controls="menuPanel" 
+          aria-haspopup="true" 
+          aria-label="Открыть меню">
+            <span class="icon"></span>
+            <p>Меню</p>
+        </button>
+        </div>
+        <!-- Menu panel -->
+        <div id="menuPanel" class="panel menu-panel" hidden aria-hidden="true" role="menu" aria-label="Меню сайта">
+          <div class="container">
+            <ul class="menu-list" role="list">
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-1.svg" alt="menu-icon">Контакты</a></li>
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-2.svg" alt="menu-icon">Отзывы</a></li>
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-3.svg" alt="menu-icon">Блог</a></li>
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-4.svg" alt="menu-icon">Сертификат</a></li>
+              <li role="none"><a role="menuitem" href="#"><img src="assets/img/menu-icon-5.svg" alt="menu-icon">Франшиза</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <div class="search-nav search-nav-panel" >
+    <input type="search" id="searchInputPanel" placeholder="Найти эмоции..." />
+    <button class="search-clear" id="clearBtn" aria-label="Очистить">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+        <path fill="#6A6A6A" fill-opacity=".6" d="M12.53 11.385a.66.66 0 0 1-.007.92.661.661 0 0 1-.925.005L7.994 8.707 4.391 12.31a.673.673 0 0 1-.926-.005.66.66 0 0 1 0-.92l3.603-3.61-3.603-3.603c-.246-.24-.246-.668 0-.926a.667.667 0 0 1 .926 0L7.994 6.85l3.604-3.604a.661.661 0 0 1 .925.006.654.654 0 0 1 .006.92L8.926 7.775l3.603 3.61Z"/>
+      </svg>
+    </button>
+    <button class="search-box" id="searchBtn" aria-label="Поиск">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+        <path fill="#6A6A6A" fill-opacity=".6" d="M1.807 8.496A6.763 6.763 0 0 1 8.564 1.74a6.763 6.763 0 0 1 6.757 6.757 6.605 6.605 0 0 1-1.262 3.885l3.793 3.802c.225.232.34.54.34.871 0 .69-.506 1.22-1.211 1.22a1.21 1.21 0 0 1-.88-.348l-3.818-3.819a6.57 6.57 0 0 1-3.719 1.146 6.763 6.763 0 0 1-6.757-6.757Zm1.727 0c0 2.78 2.25 5.03 5.03 5.03 2.78 0 5.03-2.25 5.03-5.03 0-2.78-2.25-5.03-5.03-5.03-2.78 0-5.03 2.25-5.03 5.03Z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Catalog panel -->
+  <div id="catalogPanel" class="panel catalog-panel" aria-hidden="true" role="region" aria-label="Каталог">
+    <div class="container">
+      <div class="catalog-grid">
+        <a class="cat-item" href="#">
+          <img src="assets/img/cat-1.svg" alt="">
+          Предложение руки и сердца
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Романтические свидания
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Организация свадьбы
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Выписка из роддома
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Мальчишник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Девичник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-2.svg" alt="">
+          Фотосессия
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Гендерные праздники
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Флешмоб
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Выписка из роддома
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Мальчишник
+        </a>
+        <a class="cat-item" href="#"><img src="assets/img/cat-1.svg" alt="">
+          Девичник
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Breadcrumbs -->
+    <nav class="page-breadcrumbs container" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+        <li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="index.html" itemprop="item">
+            <span itemprop="name">Главная</span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
+
+        <li class="breadcrumbs-separator" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+            <path fill="#6A6A6A" fill-opacity=".6" d="M11.75 7.77c0 .199-.07.369-.229.521l-4.57 4.47a.645.645 0 0 1-.474.194.674.674 0 0 1-.686-.68c0-.187.082-.357.205-.486l4.125-4.02L5.996 3.75a.707.707 0 0 1-.205-.492c0-.381.305-.674.686-.674.187 0 .345.064.474.193l4.57 4.471a.712.712 0 0 1 .229.522Z"/>
+          </svg>
+        </li>
+
+        <li class="breadcrumbs-item current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Контакты</span>
+          <meta itemprop="position" content="2" />
+        </li>
+
+      </ol>
+    </nav>
+
+    <!--Contact page content-->
+    <section class="cx-cont-page container">
+        <div class="cx-cont-grid">
+            <!-- ЛЕВАЯ КОЛОНКА -->
+            <div class="cx-left">
+
+                <h1 class="cx-title">Контакты</h1>
+                <p class="cx-desc">
+                    Вы можете связаться с нами по вопросам о наших услугах, деталям
+                    о профессиональных планах или идеях для организации мероприятий.
+                    Звоните по номеру телефона, отправьте нам электронное письмо или заполните форму.
+                </p>
+
+                <div class="cx-cards">
+
+                    <div class="cx-card">
+                        <img class="cx-card-icon-abs" src="assets/img/duplicate.svg" alt="duplicate">
+                        <div class="cx-card-icon"><img src="assets/img/phone-icon.svg" alt="contact-icon"></div>
+                        <div class="cx-card-info">
+                            <div class="cx-card-name">Телефон</div>
+                            <div class="cx-card-value">+7 499 877 34 19</div>
+                        </div>
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="cx-card">
+                        <img class="cx-card-icon-abs" src="assets/img/duplicate.svg" alt="duplicate">
+                        <div class="cx-card-icon"><img src="assets/img/mail-icon.svg" alt="contact-icon"></div>
+                        <div class="cx-card-info">
+                            <div class="cx-card-name">Email</div>
+                            <div class="cx-card-value">info@make-emotions.ru</div>
+                        </div>
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="cx-card">
+                        <img class="cx-card-icon-abs" src="assets/img/golink.svg" alt="golink">
+                        <div class="cx-card-icon"><img src="assets/img/whatsapp.svg" alt="contact-icon"></div>
+                        <div class="cx-card-info">
+                            <div class="cx-card-name">WhatsApp</div>
+                            <div class="cx-card-value">+7 499 877 34 19</div>
+                        </div>
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="cx-card">
+                        <img class="cx-card-icon-abs" src="assets/img/golink.svg" alt="golink">
+                        <div class="cx-card-icon"><img src="assets/img/max.svg" alt="contact-icon"></div>
+                        <div class="cx-card-info">
+                            <div class="cx-card-name">Max</div>
+                            <div class="cx-card-value">@make_emotions</div>
+                        </div>
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="cx-card">
+                        <img class="cx-card-icon-abs" src="assets/img/golink.svg" alt="golink">
+                        <div class="cx-card-icon"><img src="assets/img/tg.svg" alt="contact-icon"></div>
+                        <div class="cx-card-info">
+                            <div class="cx-card-name">Telegram</div>
+                            <div class="cx-card-value">@make_emotions</div>
+                        </div>
+                        <a href="#"></a>
+                    </div>
+
+                </div>
+
+                <div class="cx-right-form-wrapper cx-right-form-wrapper-inner">
+                    <div class="cx-form-title">Обратная связь</div>
+                    <p class="cx-form-sub">Отправьте нам ваше сообщение и мы свяжемся с вами</p>
+                    <form class="service-page-modal-form">
+                        <div class="service-page-modal-form-input">
+                            <span>Ваше имя</span>
+                            <input type="text">
+                        </div>
+                        <div class="service-page-modal-form-input">
+                            <span>Телефон</span>
+                            <input type="tel">
+                        </div>
+                        <div class="service-page-modal-form-input">
+                            <span>Ваш Email</span>
+                            <input type="email">
+                        </div>
+                        <div class="service-page-modal-form-textarea">
+                            <span>Сообщение</span>
+                            <textarea name="message" id="service-page-modal-form-textarea"></textarea>
+                        </div>
+                        <div class="service-page-modal-form-policy-wrapper">
+                            <label class="custom-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="custom-checkbox__box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 11 11">
+                                <path fill="#fff" d="M4.219 10.43c-.375 0-.657-.135-.908-.434L.287 6.334C.077 6.094 0 5.877 0 5.631c0-.55.41-.955.979-.955.328 0 .562.117.779.375l2.431 3.017L8.982.51c.235-.37.475-.51.862-.51.562 0 .972.398.972.95 0 .204-.064.421-.216.655l-5.461 8.35c-.211.322-.522.475-.92.475Z"/>
+                                </svg>
+                            </span>
+                            </label>
+                            <div class="service-page-modal-form-policy-text">
+                            Я соглашаюсь с <a href="#">Правилами оказания услуг</a>, <a href="#">Политикой конфиденциальности</a> и <a href="#">Правилами возврата</a>
+                            </div>
+                        </div>
+                        <div class="service-page-right-box__button">
+                            Отправить
+                            <img src="assets/img/arrow-right-btn-right-box.svg" alt="arrow">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="cx-loc-wrapper">
+                    <div class="cx-loc-item">
+                        <h2 class="cx-loc-title">Локация</h2>
+                        <p class="cx-loc-desc">
+                            Место где будет проходить мероприятие. В зависимости
+                            от выбранной локации может изменяться состав пакета услуг, а так
+                            же состав или доступность дополнительных услуг.
+                        </p>
+
+                        <div class="cx-loc-map">
+                            <img src="assets/img/map-bg.jpg" alt="map">
+                        </div>
+
+                        <div class="cx-loc-caption">
+                            <div class="cx-loc-caption-title">Название локации #1</div>
+                            <div class="cx-loc-caption-title-desc">
+                                Москва, 1 Неопалимовский переулок 8
+                            </div>
+                        </div>
+
+                        <div class="cx-loc-buttons">
+                            <button class="cx-btn-copy">
+                                <img src="assets/img/copy.svg" alt="copy">
+                                <span>Копировать</span>
+                            </button>
+                            <button class="cx-btn-yandex">
+                                <img src="assets/img/yamap-pin.svg" alt="pin">
+                                <span>Яндекс Карты</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+                    
+
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА -->
+            <div class="cx-right">
+                <div class="cx-right-form-wrapper">
+                    <div class="cx-form-title">Обратная связь</div>
+                    <p class="cx-form-sub">Отправьте нам ваше сообщение и мы свяжемся с вами</p>
+                    <form class="service-page-modal-form">
+                        <div class="service-page-modal-form-input">
+                            <span>Ваше имя</span>
+                            <input type="text">
+                        </div>
+                        <div class="service-page-modal-form-input">
+                            <span>Телефон</span>
+                            <input type="tel">
+                        </div>
+                        <div class="service-page-modal-form-input">
+                            <span>Ваш Email</span>
+                            <input type="email">
+                        </div>
+                        <div class="service-page-modal-form-textarea">
+                            <span>Сообщение</span>
+                            <textarea name="message" id="service-page-modal-form-textarea"></textarea>
+                        </div>
+                        <div class="service-page-modal-form-policy-wrapper">
+                            <label class="custom-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="custom-checkbox__box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 11 11">
+                                <path fill="#fff" d="M4.219 10.43c-.375 0-.657-.135-.908-.434L.287 6.334C.077 6.094 0 5.877 0 5.631c0-.55.41-.955.979-.955.328 0 .562.117.779.375l2.431 3.017L8.982.51c.235-.37.475-.51.862-.51.562 0 .972.398.972.95 0 .204-.064.421-.216.655l-5.461 8.35c-.211.322-.522.475-.92.475Z"/>
+                                </svg>
+                            </span>
+                            </label>
+                            <div class="service-page-modal-form-policy-text">
+                            Я соглашаюсь с <a href="#">Правилами оказания услуг</a>, <a href="#">Политикой конфиденциальности</a> и <a href="#">Правилами возврата</a>
+                            </div>
+                        </div>
+                        <div class="service-page-right-box__button">
+                            Отправить
+                            <img src="assets/img/arrow-right-btn-right-box.svg" alt="arrow">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col footer__logo">
+          <img src="assets/img/Logo.svg" class="logo" alt="Logo">
+        </div>
+        <div class="footer-col footer__company">
+          <p class="footer-col-title">Компания</p>
+          <ul>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">Блог</a></li>
+            <li><a href="#">Cертификат</a></li>
+            <li><a href="#">Франшиза</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer__services">
+          <p class="footer-col-title">Популярные услуги</p>
+          <ul>
+            <li><a href="#">Свидание в Москва-сити</a></li>
+            <li><a href="#">Свидание в Останкино</a></li>
+            <li><a href="#">Предложение руки и сердца</a></li>
+            <li><a href="#">Флешмоб</a></li>
+            <li><a href="#">Девичник</a></li>
+            <li><a href="#">Мальчишник</a></li>
+            <li><a href="#">Выписка с роддома</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer__social">
+          <p class="footer-col-title">Социальные сети</p>
+          <ul>
+            <li><a href="#"><img src="assets/img/vk.svg" alt="vk">Вконтакте</a></li>
+            <li><a href="#"><img src="assets/img/tg.svg" alt="tg">Telegram</a></li>
+            <li><a href="#"><img src="assets/img/youtube.svg" alt="youtube">Youtube</a></li>
+            <li><a href="#"><img src="assets/img/ig.svg" alt="ig">Insta</a></li>
+            <li><a href="#"><img src="assets/img/max.svg" alt="max">Max</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <div class="footer-copy-text">
+          <p>
+            © 2025 Мастерская Эмоций <br>
+            ОГРН: 321774600652941 <br>
+            ИНН: 213001929258
+          </p>
+        </div>
+        <div class="footer-copy-links">
+          <a href="#">Авторские права</a>
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Правила оказания услуг</a>
+          <a href="#">Договор оферты</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Swiper JS -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
