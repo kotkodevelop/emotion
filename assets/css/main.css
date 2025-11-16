@@ -4386,7 +4386,7 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
   }
   .service-page-gallery-screen-single-slide-content-wrap {
-    height: calc(100% - 32px);
+    width: calc(100% - 32px);
   }
   .gallery-grid-item {
     width: calc(33.3% - 6px);
@@ -4396,5 +4396,8 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .service-page-right-box {
     box-shadow: unset;
+  }
+  .service-page-modal-pack-low-bar {
+    border-radius: 0;
   }
 }
