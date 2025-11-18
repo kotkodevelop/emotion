@@ -5008,6 +5008,12 @@ input[type="search"]::-webkit-search-results-decoration {
     margin-top: 20px;
   }
   .seach-empty-page-h {
-    height: 30vh !important;
+    height: auto !important;
+    max-height: 295px !important;
+    min-height: unset !important;
+    padding-top: 15% !important;
+  }
+  .seach-empty-page-h .category-head {
+    margin-bottom: 0;
   }
 }
