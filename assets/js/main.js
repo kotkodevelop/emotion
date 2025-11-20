@@ -964,3 +964,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const input = document.querySelector('.gift-card-in-form input[type="number"]');
+    const buttons = document.querySelectorAll('.gift-card-btn');
+
+    if (!input || !buttons.length) return;
+
+    // Макс значение
+    input.max = 1000000;
+
+    // Клик по кнопкам
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const value = btn.textContent.replace(/\s|₽/g, '');
+            input.value = value;
+
+            // Обновляем активную кнопку
+            buttons.forEach(b => b.classList.remove('gift-card-btn-active'));
+            btn.classList.add('gift-card-btn-active');
+        });
+    });
+
+    // Ручной ввод
+    input.addEventListener('input', () => {
+        // Если ввёл больше — ограничиваем
+        if (+input.value > 1000000) {
+            input.value = 1000000;
+        }
+
+        // Снимаем актив со всех кнопок
+        buttons.forEach(b => b.classList.remove('gift-card-btn-active'));
+    });
+});

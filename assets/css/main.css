@@ -2969,6 +2969,7 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 10px 16px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .service-page-modal-form-input span {
   font-weight: 400;
@@ -4141,6 +4142,238 @@ input[type="search"]::-webkit-search-results-decoration {
 .seach-empty-page-h {
   height: calc(70vh - 625px);
 }
+.gift-card-page-head {
+  margin-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border, #EDEDED);
+  margin-bottom: 44px;
+}
+.gift-card-page-head h1 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 120%;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.gift-card-page-head p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  margin: 0;
+  color: #737373;
+}
+
+.gift-card-title {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 120%;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.gift-card-subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: #737373;
+  max-width: 480px;
+  margin: 0;
+}
+
+.gift-card-section {
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border, #EDEDED);
+  margin-bottom: 44px;
+}
+
+.gift-card-input-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.gift-card-input-box {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.gift-card-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: #f4f4f4;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.gift-card-input-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 15px;
+}
+
+.gift-card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.gift-card-btn {
+  padding: 10px 18px;
+  background: #f4f4f4;
+  border-radius: 20px;
+  border: none;
+  font-size: 14px;
+}
+
+.gift-card-btn-active {
+  background: #222;
+  color: #fff;
+}
+
+.gift-card-textarea-box {
+  margin-top: 6px;
+}
+
+
+.gift-card-in-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Убрать стрелки в Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.gift-card-r-img {
+  border-radius: 24px;
+  box-shadow: 0px 11px 33px 0px #0000001A;
+  max-width: 100%;
+  object-fit: cover;
+}
+.gift-p-r-w {
+  max-width: 440px;
+  width: 100%;
+}
+.gift-card-r-content-wrap {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.gift-card-r-info-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  row-gap: 16px;
+  max-width: 100%;
+}
+.gift-card-r-info {
+  width: calc(50% - 8px);
+  display: flex;
+  flex-direction: column;
+}
+.gift-card-r-info-l {
+  width: 100%;
+}
+.gift-card-r-info p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+}
+.gift-card-r-info span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: #737373;
+}
+.gift-card-r-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+.gift-card-r-total p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+}
+.gift-card-r-total span {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 120%;
+}
+.gift-card-in-input-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6A6A6A99;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 20px;
+}
+.gift-card-r-content-wrap .service-page-modal-form-policy-wrapper {
+  margin-top: 0;
+}
+.cta-block-wrap h3 {
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+.cta-block-wrap p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: #737373;
+}
+.cta-block-wrap h4 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+}
+.cta-block-wrap li {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: #737373;
+  margin-bottom: 8px;
+}
+.cta-block-wrap a {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  text-decoration: none;
+  color: #222;
+}
+.cta-block-wrap {
+  padding-top: 44px;
+  border-top: 1px solid var(--border, #EDEDED);
+}
+.gift-card-r-mob-title {
+  display: none;
+}
+.gift-card-head-img-mob {
+  display: none;
+}
 
 /* adjust positions for header height on small screens */
 @media (max-width:767px){
@@ -4277,6 +4510,41 @@ input[type="search"]::-webkit-search-results-decoration {
   .cx-cards {
     padding-bottom: 32px;
     margin-bottom: 32px;
+  }
+  .gift-p-r-w {
+    position: unset;
+    transform: unset;
+    padding-top: 32px;
+    border-top: 1px solid var(--border, #EDEDED);
+    max-width: unset;
+    margin-top: 44px;
+  }
+  .service-page-wrapper-gift-page {
+    flex-direction: column;
+  }
+  .gift-p-r-w .gift-card-r-img {
+    display: none;
+  }
+  .gift-card-r-mob-title {
+    display: flex;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 120%;
+    margin-bottom: 20px;
+  }
+  .gift-card-r-content-wrap {
+    padding: 0;
+  }
+  .gift-card-head-img-mob {
+    display: flex;
+    box-shadow: 0px 11px 33px 0px #0000001A;
+    border-radius: 24px;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  .gift-card-page-head {
+    border: 0;
+    padding: 0;
   }
 }
 @media (max-width:767px){
