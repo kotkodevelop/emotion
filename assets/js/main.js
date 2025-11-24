@@ -999,3 +999,42 @@ document.addEventListener('DOMContentLoaded', () => {
         buttons.forEach(b => b.classList.remove('gift-card-btn-active'));
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.querySelector('.blog-page-title-select');
+    const display = root.querySelector('.select-display');
+    const dropdown = root.querySelector('.select-dropdown');
+    const text = root.querySelector('.select-text');
+    const realSelect = root.querySelector('select');
+
+    display.addEventListener('click', () => {
+        dropdown.classList.toggle('active');
+    });
+
+    dropdown.querySelectorAll('.select-option').forEach(option => {
+        option.addEventListener('click', () => {
+            const value = option.dataset.value;
+            const label = option.textContent;
+
+            text.textContent = label;
+            realSelect.value = value;
+
+            dropdown.classList.remove('active');
+        });
+    });
+
+    // закрытие при клике вне
+    document.addEventListener('click', (e) => {
+        if (!root.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+});
+
+
+document.querySelectorAll('.blog-card').forEach(card => {
+  card.addEventListener('click', () => {
+    window.location.href = card.getAttribute('href');
+  });
+});
