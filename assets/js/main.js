@@ -1002,35 +1002,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const root = document.querySelector('.blog-page-title-select');
-    const display = root.querySelector('.select-display');
-    const dropdown = root.querySelector('.select-dropdown');
-    const text = root.querySelector('.select-text');
-    const realSelect = root.querySelector('select');
+    const roots = document.querySelectorAll('.blog-page-title-select');
+    if (!roots.length) return;
 
-    display.addEventListener('click', () => {
-        dropdown.classList.toggle('active');
-    });
+    roots.forEach(root => {
+        const display = root.querySelector('.select-display');
+        const dropdown = root.querySelector('.select-dropdown');
+        const text = root.querySelector('.select-text');
+        const realSelect = root.querySelector('select');
 
-    dropdown.querySelectorAll('.select-option').forEach(option => {
-        option.addEventListener('click', () => {
-            const value = option.dataset.value;
-            const label = option.textContent;
+        // Проверяем наличие всех обяз. элементов
+        if (!display || !dropdown || !text || !realSelect) {
+            console.warn('blog-page-title-select: missing internal structure', root);
+            return;
+        }
 
-            text.textContent = label;
-            realSelect.value = value;
+        // Открытие/закрытие
+        display.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
 
-            dropdown.classList.remove('active');
+        // Выбор элемента
+        dropdown.querySelectorAll('.select-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const value = option.dataset.value;
+                const label = option.textContent.trim();
+
+                text.textContent = label;
+                realSelect.value = value;
+                dropdown.classList.remove('active');
+
+                // Триггерим событие change, если нужно слушать его извне
+                realSelect.dispatchEvent(new Event('change'));
+            });
         });
     });
 
-    // закрытие при клике вне
-    document.addEventListener('click', (e) => {
-        if (!root.contains(e.target)) {
-            dropdown.classList.remove('active');
-        }
+    // Глобальное закрытие по клику вне элементов
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.select-dropdown.active').forEach(d => {
+            d.classList.remove('active');
+        });
     });
 });
+
 
 
 document.querySelectorAll('.blog-card').forEach(card => {
