@@ -1055,3 +1055,7 @@ document.querySelectorAll('.blog-card').forEach(card => {
     window.location.href = card.getAttribute('href');
   });
 });
+
+
+
+

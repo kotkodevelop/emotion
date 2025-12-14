@@ -225,7 +225,16 @@
 
     <section class="category-section container single-blog-recs">
         <div class="single-blog-recs-title">
-            Похожие статьи
+            <span>Похожие статьи</span>
+            <div class="sblog-unique-slider-controls">
+              <button class="sblog-unique-slider-btn sblog-unique-slider-btn-prev" tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-ec8ac5073462bfd7">
+                <img src="assets/img/chevron-left-black.svg" alt="left">
+              </button>
+              <div class="sblog-unique-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span></div>
+              <button class="sblog-unique-slider-btn sblog-unique-slider-btn-next" tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-ec8ac5073462bfd7">
+                <img src="assets/img/chevron-right-black.svg" alt="right">
+              </button>
+            </div>
         </div>
         <div class="blog-cards-wrapper">
           <a href="#" class="blog-card">
@@ -269,6 +278,122 @@
           </a>
         </div>
     </section>
+
+    <style>
+      .blog-cards-wrapper {
+        display: grid;
+        gap: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .blog-cards-wrapper.single-blog-adds {
+          display: block; 
+          overflow: visible; 
+        }
+
+        .blog-cards-wrapper.single-blog-adds .swiper-wrapper {
+          align-items: stretch;
+        }
+
+        .blog-cards-wrapper.single-blog-adds .swiper-slide {
+          height: auto;
+        }
+
+        .blog-cards-wrapper.single-blog-adds {
+          padding-right: 40px; 
+        }
+        .blog-card {
+          min-width: 320px;
+        }
+        .blog-card-image {
+          height: 200px;
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        const selector = '.blog-cards-wrapper';
+        const swiperNameClass = 'single-blog-adds';
+        const bp = 768;
+
+        // ваши контролы
+        const navPrevSel = '.sblog-unique-slider-btn-prev';
+        const navNextSel = '.sblog-unique-slider-btn-next';
+        const pagSel     = '.sblog-unique-pagination';
+
+        let swiperInstance = null;
+
+        function enableMobileSwiper() {
+          const el = document.querySelector(selector);
+          if (!el || swiperInstance) return;
+
+          el.classList.add('swiper', swiperNameClass);
+
+          const cards = Array.from(el.querySelectorAll(':scope > .blog-card'));
+          if (!cards.length) return;
+
+          const wrapper = document.createElement('div');
+          wrapper.className = 'swiper-wrapper';
+
+          cards.forEach(card => {
+            card.classList.add('swiper-slide');
+            wrapper.appendChild(card);
+          });
+
+          el.appendChild(wrapper);
+
+          swiperInstance = new Swiper('.' + swiperNameClass, {
+            slidesPerView: 1.1,
+            spaceBetween: 16,
+            watchOverflow: true,
+
+            navigation: {
+              prevEl: navPrevSel,
+              nextEl: navNextSel,
+            },
+
+            pagination: {
+              el: pagSel,
+              clickable: true,
+            },
+
+            breakpoints: {
+              0:   { slidesPerView: 1.1, spaceBetween: 16 },
+              480: { slidesPerView: 1.2, spaceBetween: 16 },
+              640: { slidesPerView: 1.3, spaceBetween: 16 },
+            }
+          });
+        }
+
+        function disableMobileSwiper() {
+          const el = document.querySelector(selector);
+          if (!el || !swiperInstance) return;
+
+          swiperInstance.destroy(true, true);
+          swiperInstance = null;
+
+          const wrapper = el.querySelector(':scope > .swiper-wrapper');
+          if (wrapper) {
+            const slides = Array.from(wrapper.children);
+            slides.forEach(slide => {
+              slide.classList.remove('swiper-slide');
+              el.appendChild(slide);
+            });
+            wrapper.remove();
+          }
+
+          el.classList.remove('swiper', swiperNameClass);
+        }
+
+        function update() {
+          if (window.innerWidth <= bp) enableMobileSwiper();
+          else disableMobileSwiper();
+        }
+
+        window.addEventListener('resize', update);
+        window.addEventListener('DOMContentLoaded', update);
+      })();
+    </script>
 
   </main>
 
