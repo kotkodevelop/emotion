@@ -459,7 +459,7 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-bottom:24px;
 }
 .category-title-group{display:flex;gap:14px;align-items:center}
-.cat-icon img{width:72px;height:72px;border-radius:0px;object-fit:cover}
+.cat-icon img{border-radius:0px;object-fit:cover}
 .category-name{
   margin:0 0 8px;
   font-weight: 600;
