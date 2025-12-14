@@ -459,7 +459,6 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-bottom:24px;
 }
 .category-title-group{display:flex;gap:14px;align-items:center}
-.cat-icon img{}
 .category-name{
   margin:0 0 8px;
   font-weight: 600;
